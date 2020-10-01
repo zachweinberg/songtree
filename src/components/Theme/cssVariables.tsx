@@ -1,7 +1,3 @@
-// Logic borrowed from https://joshwcomeau.com/gatsby/dark-mode/
-
-import Terser from 'terser'
-import * as React from 'react'
 import { COLORS } from './colors'
 
 // Convert our theme colors to css variables
@@ -23,13 +19,9 @@ export const setColorsByTheme = () => {
 // Inject JS script at compile
 export const MagicScriptTag = () => {
   const fn = String(setColorsByTheme).replace("'🌈'", JSON.stringify(COLORS))
-
   const calledFunction = `(${fn})()`
-
   // eslint-disable-next-line react/no-danger
-  return (
-    <script id="FUCK" dangerouslySetInnerHTML={{ __html: calledFunction }} />
-  )
+  return <script dangerouslySetInnerHTML={{ __html: calledFunction }} />
 }
 
 // If JavaScript is disabled, use dark
@@ -40,7 +32,6 @@ export const FallbackStyles = () => {
     },
     ''
   )
-
   const wrappedInSelector = `html { ${cssVariableString} }`
 
   return <style>{wrappedInSelector}</style>

@@ -1,4 +1,3 @@
-// import App from "next/app";
 import type { AppProps } from 'next/app'
 import Providers from '~/components/Providers'
 import '~/components/GlobalStyles/theme.css'

@@ -37,6 +37,7 @@ export default class MyDocument extends Document {
           {/* If JS is disabled, populate our css variable styling here */}
           <FallbackStyles />
         </Head>
+
         <body>
           {/* Magic script tag will modify css variables at runtime */}
           <MagicScriptTag />
