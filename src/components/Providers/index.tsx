@@ -1,3 +1,4 @@
+import GlobalStyles from '~/components/Theme/GlobalStyles'
 import SEO from './SEO'
 
 interface Props {
@@ -8,6 +9,7 @@ const Providers = ({ children }: Props) => {
   return (
     <>
       <SEO />
+      <GlobalStyles />
       {children}
     </>
   )

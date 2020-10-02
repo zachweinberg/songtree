@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import Providers from '~/components/Providers'
-import '~/components/GlobalStyles/theme.css'
+// import '~/components/Theme/theme.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
