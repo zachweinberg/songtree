@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import Header from '~/components/Header'
 import {
   Container,
   SectionHeading,
@@ -18,7 +19,7 @@ export default function Page(props: Props) {
 
   return (
     <Container>
-      {/* <Header /> */}
+      <Header />
       <InnerContainer>{children}</InnerContainer>
     </Container>
   )
