@@ -1,6 +1,6 @@
 import GlobalStyles from '~/components/Theme/GlobalStyles'
 import SEO from './SEO'
-import DarkMode from './DarkMode'
+import { AppProvider } from './Context'
 
 interface Props {
   children?: any
@@ -8,12 +8,11 @@ interface Props {
 
 const Providers = ({ children }: Props) => {
   return (
-    <>
+    <AppProvider>
       <SEO />
-      <DarkMode />
       <GlobalStyles />
       {children}
-    </>
+    </AppProvider>
   )
 }
 
