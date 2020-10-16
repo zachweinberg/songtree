@@ -17,11 +17,6 @@ const SeoDetails = {
       },
     ],
   },
-  twitter: {
-    handle: '@brian_lovin',
-    site: '@brian_lovin',
-    cardType: 'summary_large_image',
-  },
 }
 const SEO = () => {
   return (

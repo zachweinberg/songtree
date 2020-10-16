@@ -14,7 +14,7 @@ const SearchInput = ({ onChange }: Props) => (
       onChange(e)
       // refine(e.target.value)
     }}
-    placeholder="Search for music"
+    placeholder="Search for songs, artists or albums..."
     aria-label="Search"
   />
 )
