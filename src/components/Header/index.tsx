@@ -1,14 +1,12 @@
-import { Container, LogoContainer, RandomContainer } from './style'
+import { Container, LogoContainer } from './style'
 import Button from '~/components/Buttons'
+import Search from '~/components/Search'
 
 const Header = () => {
   return (
     <Container>
       <LogoContainer>Hey</LogoContainer>
-      <div></div>
-      <RandomContainer>
-        <Button>Random Song</Button>
-      </RandomContainer>
+      <Search />
     </Container>
   )
 }

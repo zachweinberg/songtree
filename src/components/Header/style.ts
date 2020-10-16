@@ -33,10 +33,3 @@ export const LogoContainer = styled.div`
     height: 24px;
   }
 `
-
-export const RandomContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  grid-area: random;
-  align-items: center;
-`
