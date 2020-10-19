@@ -1,11 +1,29 @@
 import axios from 'axios'
 import qs from 'querystring'
+import { Song } from '~/types'
 
 interface SpotifyToken {
   access_token: string
   token_type: string
   expires_in: number
   issued_at: number
+}
+
+interface SpotifyTrack {
+  id: string
+  url: string
+  popularity: number
+  name: string
+  duration_ms: number
+}
+interface SpotifySearchResults {
+  href: string
+  items: SpotifyTrack[]
+  limit: number
+  next: string | null
+  offset: number
+  total: number
+  previous: string | null
 }
 
 let __token: SpotifyToken | null = null
@@ -53,18 +71,28 @@ const getSpotifyToken = async (): Promise<SpotifyToken> => {
   return __token
 }
 
+const formatSpotifyResults = (results: SpotifySearchResults): Song[] => {
+  if (!results || !results.items) {
+    return []
+  }
+
+  return results.items.map((item) => ({
+    name: item.name,
+    artist: 'Steely',
+    image: '',
+  }))
+}
+
 // TODO: Type this response
-export const searchSpotify = async (searchTerm: string) => {
+export const searchSpotify = async (query: string) => {
   const token = await getSpotifyToken()
+  const searchTerm = query.replace(' ', '%20')
   const { data } = await axios({
-    url: `https://api.spotify.com/v1/search?q=${searchTerm.replace(
-      ' ',
-      '%20'
-    )}&type=track,artist,album&limit=5`,
+    url: `https://api.spotify.com/v1/search?q=${searchTerm}&type=track`,
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token.access_token}`,
     },
   })
-  return data
+  return formatSpotifyResults(data.tracks)
 }

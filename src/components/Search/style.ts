@@ -62,3 +62,21 @@ export const Input = styled.input`
     border-radius: 4px !important;
   }
 `
+
+export const SearchEpisodeContainer = styled.section`
+  padding: 12px;
+  border-bottom: 1px solid var(--border-primary);
+  display: flex;
+  flex: 1 0 auto;
+  width: 100%;
+  align-items: center;
+
+  &:hover {
+    background: var(--bg-primary);
+  }
+`
+
+export const AlbumArtwork = styled.img`
+  width: 40px;
+  height: 40px;
+`
