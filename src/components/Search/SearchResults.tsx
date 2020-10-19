@@ -6,7 +6,7 @@ import {
   SongInfo,
   SongTitle,
   SongArtist,
-} from './style'
+} from './styles'
 
 interface Props {
   songs: Song[]

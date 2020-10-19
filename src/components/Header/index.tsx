@@ -1,4 +1,4 @@
-import { Container, LogoContainer } from './style'
+import { Container, LogoContainer } from './styles'
 import Search from '~/components/Search'
 import DarkModeToggle from '~/components/DarkModeToggle'
 

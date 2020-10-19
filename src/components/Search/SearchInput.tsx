@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Input } from './style'
+import { Input } from './styles'
 
 interface Props {
   value: string
@@ -10,7 +10,6 @@ const SearchInput = ({ value, onChange }: Props) => (
   <Input
     type="search"
     value={value}
-    onFocus={onChange}
     onChange={(e) => {
       onChange(e)
     }}

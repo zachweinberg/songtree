@@ -13,40 +13,17 @@ export const Container = styled.div`
 
 export const Input = styled.input`
   border-radius: 4px !important;
-  border: 1px solid var(--border-primary);
   background: var(--bg-primary);
   color: var(--text-secondary);
+  border: 1px solid var(--border-primary);
   padding: 12px 16px;
   width: 100%;
   box-shadow: none;
-  transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out,
-    transform 0.3s ease-in-out;
   font-size: 16px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  ::-webkit-input-placeholder {
-    text-align: center;
-  }
-  ::-webkit-input-placeholder {
-    text-align: center;
-  }
-  :-moz-placeholder {
-    /* Firefox 18- */
-    text-align: center;
-  }
-  ::-moz-placeholder {
-    /* Firefox 19+ */
-    text-align: center;
-  }
-  :-ms-input-placeholder {
-    text-align: center;
-  }
   &:hover {
     box-shadow: none;
     transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out,
       transform 0.3s ease-in-out;
-    -webkit-appearance: none;
-    -moz-appearance: none;
   }
   &:focus {
     background: var(--bg-secondary);
@@ -54,8 +31,6 @@ export const Input = styled.input`
     box-shadow: none;
     transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out,
       transform 0.3s ease-in-out;
-    -webkit-appearance: none;
-    -moz-appearance: none;
   }
   &:active {
     border-radius: 4px !important;
@@ -67,7 +42,6 @@ export const ResultsContainer = styled.div`
   top: 48px;
   width: 100%;
   background: var(--bg-secondary);
-  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
   transition: all 0.2s ease-in-out 0s;
   border-radius: 4px;
   z-index: 1000;
@@ -93,6 +67,7 @@ export const ResultItem = styled.div`
 `
 
 export const AlbumArtwork = styled.img`
+  border-radius: 4px;
   width: 60px;
   height: 60px;
 `

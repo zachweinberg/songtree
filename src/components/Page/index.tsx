@@ -6,7 +6,7 @@ import {
   Heading,
   Subheading,
   InnerContainer,
-} from './style'
+} from './styles'
 
 export { SectionHeading, Heading, Subheading }
 

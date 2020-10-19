@@ -3,7 +3,7 @@ import axios from 'axios'
 import debounce from 'lodash/debounce'
 import SearchInput from './SearchInput'
 import SearchResults from './SearchResults'
-import { Container } from './style'
+import { Container } from './styles'
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('')
