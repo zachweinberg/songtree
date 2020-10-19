@@ -1,20 +1,31 @@
 import { Song } from '~/types'
-import { SearchEpisodeContainer } from './style'
-
-const ResultItem = ({ song }: { song: Song }) => {
-  return (
-    <SearchEpisodeContainer>
-      <p>{song.name}</p>
-    </SearchEpisodeContainer>
-  )
-}
+import {
+  ResultsContainer,
+  ResultItem,
+  AlbumArtwork,
+  SongInfo,
+  SongTitle,
+  SongArtist,
+} from './style'
 
 interface Props {
-  results: Song[]
+  songs: Song[]
 }
 
-const SearchResults = ({ results }: Props) => {
-  return results.map((song) => <ResultItem song={song} key={song.name} />)
+const SearchResults = ({ songs }: Props) => {
+  return (
+    <ResultsContainer>
+      {songs.map((song) => (
+        <ResultItem key={song.id}>
+          <AlbumArtwork src={song.albumArtUrl} />
+          <SongInfo>
+            <SongTitle>{song.name}</SongTitle>
+            <SongArtist>{song.artist}</SongArtist>
+          </SongInfo>
+        </ResultItem>
+      ))}
+    </ResultsContainer>
+  )
 }
 
 export default SearchResults

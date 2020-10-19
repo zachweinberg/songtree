@@ -9,14 +9,30 @@ interface SpotifyToken {
   issued_at: number
 }
 
+interface SpotifyArtist {
+  name: string
+  id: string
+}
+
+interface SpotifyAlbum {
+  id: string
+  name: string
+  release_date: string
+  total_tracks: number
+  images: { height: number; width: number; url: string }[]
+}
+
 interface SpotifyTrack {
   id: string
   url: string
   popularity: number
   name: string
   duration_ms: number
+  artists: SpotifyArtist[]
+  album: SpotifyAlbum
 }
 interface SpotifySearchResults {
+  id: string
   href: string
   items: SpotifyTrack[]
   limit: number
@@ -76,11 +92,18 @@ const formatSpotifyResults = (results: SpotifySearchResults): Song[] => {
     return []
   }
 
-  return results.items.map((item) => ({
-    name: item.name,
-    artist: 'Steely',
-    image: '',
-  }))
+  return results.items.map((item) => {
+    const albumArtUrl = item.album.images[0].url
+
+    return {
+      id: item.id,
+      name: item.name,
+      releaseDate: item.album.release_date,
+      artist: item.artists[0].name,
+      album: item.album.name,
+      albumArtUrl,
+    }
+  })
 }
 
 // TODO: Type this response
