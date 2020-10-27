@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <Page>
       <SectionHeading>
-        <Heading>SongThoughts</Heading>
+        <Heading>SongThoughts!</Heading>
         <Subheading>What people think about songs</Subheading>
       </SectionHeading>
     </Page>
