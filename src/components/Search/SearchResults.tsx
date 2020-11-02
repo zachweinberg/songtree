@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { SongSearchResult } from '~/types'
+import { Song } from '~/types'
 import {
   ResultsContainer,
   ResultItem,
@@ -10,10 +10,11 @@ import {
 } from './styles'
 
 interface Props {
-  songs: SongSearchResult[]
+  songs: Song[]
+  onClick: () => void
 }
 
-const renderSongResults = (songs: SongSearchResult[]) => {
+const renderSongResults = (songs: Song[]) => {
   return songs.map((song) => (
     <Link href={`/song/${song.id}`} key={song.id}>
       <a>

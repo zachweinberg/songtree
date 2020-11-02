@@ -63,6 +63,7 @@ const theme = {
     hover: '0.35s cubic-bezier(0.165, 0.84, 0.44, 1)',
     active: '0.35s cubic-bezier(0.165, 0.84, 0.44, 1)',
   },
+  borderRadius: '7px',
 }
 
 export default theme

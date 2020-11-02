@@ -24,16 +24,14 @@ const normalizeTimestamps = <T>(value: T): T =>
   Object.keys(value).reduce((final, key) => {
     let finalValue
 
-    // If we encounter any dates, we need to stringify them. Next.js has issues
-    // sending date objects through SSR
     if (value[key] instanceof firestore.Timestamp) {
-      finalValue = value[key].toDate().toISOString()
+      finalValue = value[key].toDate()
     } else if (
       typeof value[key] === 'object' &&
       value[key]._nanoseconds &&
       value[key]._seconds
     ) {
-      finalValue = new Date(value[key]._seconds * 1000).toISOString()
+      finalValue = new Date(value[key]._seconds * 1000)
     } else if (
       value[key] !== null &&
       typeof value[key] === 'object' &&

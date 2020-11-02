@@ -35,7 +35,9 @@ const Search = () => {
   return (
     <Container>
       <SearchInput onChange={onChange} value={searchTerm} />
-      {results && results.length > 0 && <SearchResults songs={results} />}
+      {results && results.length > 0 && (
+        <SearchResults onClick={() => setResults([])} songs={results} />
+      )}
     </Container>
   )
 }

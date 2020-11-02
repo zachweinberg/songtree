@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import theme from '~/components/Theme'
 
 export const Container = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ export const Container = styled.div`
 `
 
 export const Input = styled.input`
-  border-radius: 4px !important;
+  border-radius: ${theme.borderRadius};
   background: var(--bg-primary);
   color: var(--text-secondary);
   border: 1px solid var(--border-primary);
