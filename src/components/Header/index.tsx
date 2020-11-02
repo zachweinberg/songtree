@@ -5,7 +5,7 @@ import DarkModeToggle from '~/components/DarkModeToggle'
 const Header = () => {
   return (
     <Container>
-      <LogoContainer>Song Thoughts</LogoContainer>
+      <LogoContainer>SongTree</LogoContainer>
       <Search />
       <DarkModeToggle />
     </Container>

@@ -5,8 +5,8 @@ const Home: NextPage = () => {
   return (
     <Page>
       <SectionHeading>
-        <Heading>SongThoughts!</Heading>
-        <Subheading>What people think about songs</Subheading>
+        <Heading>SongTree</Heading>
+        <Subheading>Song Database 🎹</Subheading>
       </SectionHeading>
     </Page>
   )
