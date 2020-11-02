@@ -22,7 +22,29 @@ const GlobalStyles = createGlobalStyle`
     color: var(--text-primary);
   }
 
-  
+  #nprogress {
+  pointer-events: none;
+}
+
+  #nprogress .bar {
+    background: ${theme.colors['purple-accent'].dark};
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+  }
+
+  .nprogress-custom-parent {
+    overflow: hidden;
+    position: relative;
+    z-index: 2000;
+  }
+
+  .nprogress-custom-parent #nprogress .bar {
+    position: absolute;
+  }
 `
 
 export default GlobalStyles

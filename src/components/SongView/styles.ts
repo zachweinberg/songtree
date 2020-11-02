@@ -8,14 +8,23 @@ export const SongInfo = styled.div`
 `
 
 export const AlbumArt = styled.img`
-  max-width: 370px;
+  max-width: 300px;
   border-radius: ${theme.borderRadius};
-  margin-right: 64px;
+  margin-right: 35px;
+`
+
+export const SongTitle = styled.h1`
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
 `
 
 export const Description = styled.h2`
+  margin: 0;
   font-size: 22px;
   font-weight: 400;
   color: var(--text-tertiary);
   line-height: 1.4;
+  margin-bottom: 8px;
 `

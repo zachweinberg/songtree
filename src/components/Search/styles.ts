@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import theme from '~/components/Theme'
 
 export const Container = styled.div`
   display: flex;
@@ -9,32 +8,6 @@ export const Container = styled.div`
   position: relative;
   @media (max-width: 968px) {
     padding-top: 8px;
-  }
-`
-
-export const Input = styled.input`
-  border-radius: ${theme.borderRadius};
-  background: var(--bg-primary);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-primary);
-  padding: 12px 16px;
-  width: 100%;
-  box-shadow: none;
-  font-size: 16px;
-  &:hover {
-    box-shadow: none;
-    transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out,
-      transform 0.3s ease-in-out;
-  }
-  &:focus {
-    background: var(--bg-secondary);
-    border-radius: 4px !important;
-    box-shadow: none;
-    transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out,
-      transform 0.3s ease-in-out;
-  }
-  &:active {
-    border-radius: 4px !important;
   }
 `
 

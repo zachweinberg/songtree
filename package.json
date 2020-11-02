@@ -13,6 +13,7 @@
     "lodash": "^4.17.20",
     "next": "^9.5.5",
     "next-seo": "^4.10.0",
+    "nprogress": "^0.2.0",
     "querystring": "^0.2.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",

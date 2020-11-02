@@ -100,7 +100,7 @@ const formatSong = (spotifyTrack: SpotifyTrack, isSearch = false): Song => {
   return {
     id: spotifyTrack.id,
     name: spotifyTrack.name,
-    releaseDate: spotifyTrack.album.release_date,
+    releaseYear: spotifyTrack.album.release_date.substr(0, 4),
     artist: spotifyTrack.artists[0].name,
     album: spotifyTrack.album.name,
     albumArtUrl,

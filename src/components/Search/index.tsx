@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import axios from 'axios'
 import debounce from 'lodash/debounce'
-import SearchInput from './SearchInput'
+import Input from '~/components/Input'
 import SearchResults from './SearchResults'
 import { Container } from './styles'
 
@@ -14,6 +14,11 @@ const Search = () => {
     setResults(data)
   }
 
+  const clearSearch = () => {
+    setSearchTerm('')
+    setResults([])
+  }
+
   const debouncedSearch = useCallback(
     debounce((q) => searchTracks(q), 200),
     []
@@ -21,22 +26,30 @@ const Search = () => {
 
   const onChange = (e: any) => {
     const { value } = e.target
-
     setSearchTerm(value)
 
     if (value.length > 0) {
       debouncedSearch(value)
     } else {
-      setSearchTerm('')
-      setResults([])
+      clearSearch()
     }
   }
 
   return (
     <Container>
-      <SearchInput onChange={onChange} value={searchTerm} />
+      <Input
+        onChange={onChange}
+        value={searchTerm}
+        aria-label="search"
+        placeholder="Search for songs, artists and albums"
+        type="search"
+      />
       {results && results.length > 0 && (
-        <SearchResults onClick={() => setResults([])} songs={results} />
+        <SearchResults
+          onOutsideClick={clearSearch}
+          onClick={() => setResults([])}
+          songs={results}
+        />
       )}
     </Container>
   )

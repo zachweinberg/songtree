@@ -4,18 +4,17 @@ import { Input } from './styles'
 interface Props {
   value: string
   onChange: Function
+  placeholder: string
+  type: 'text' | 'search'
 }
 
-const SearchInput = ({ value, onChange }: Props) => (
+export default ({ value, onChange, placeholder, type }: Props) => (
   <Input
-    type="search"
+    type={type}
     value={value}
     onChange={(e) => {
       onChange(e)
     }}
-    placeholder="Search for songs, artists or albums..."
-    aria-label="Search"
+    placeholder={placeholder}
   />
 )
-
-export default SearchInput
