@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Song } from '~/types'
 import {
   ResultsContainer,
@@ -16,13 +17,17 @@ const SearchResults = ({ songs }: Props) => {
   return (
     <ResultsContainer>
       {songs.map((song) => (
-        <ResultItem key={song.id}>
-          <AlbumArtwork src={song.albumArtUrl} />
-          <SongInfo>
-            <SongTitle>{song.name}</SongTitle>
-            <SongArtist>{song.artist}</SongArtist>
-          </SongInfo>
-        </ResultItem>
+        <Link href="https://google.com" key={song.id}>
+          <a>
+            <ResultItem>
+              <AlbumArtwork src={song.albumArtUrl} />
+              <SongInfo>
+                <SongTitle>{song.name}</SongTitle>
+                <SongArtist>{song.artist}</SongArtist>
+              </SongInfo>
+            </ResultItem>
+          </a>
+        </Link>
       ))}
     </ResultsContainer>
   )
