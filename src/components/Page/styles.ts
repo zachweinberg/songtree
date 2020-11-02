@@ -7,6 +7,7 @@ export const Container = styled.div`
   justify-content: flex-start;
   height: 100%;
   max-width: 100%;
+  margin-top: 20px;
 `
 
 export const InnerContainer = styled.div`

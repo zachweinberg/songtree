@@ -1,6 +1,7 @@
+import { NextPage } from 'next'
 import Page, { SectionHeading, Heading, Subheading } from '~/components/Page'
 
-const Home = () => {
+const Home: NextPage = () => {
   return (
     <Page>
       <SectionHeading>

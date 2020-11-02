@@ -5,4 +5,10 @@ export interface Song {
   artist: string
   album: string
   albumArtUrl: string
+  comments?: Comment[]
+}
+
+interface Comment {
+  text: string
+  createdAt: Date
 }

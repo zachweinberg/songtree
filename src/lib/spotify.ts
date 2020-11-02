@@ -93,7 +93,8 @@ const formatSpotifyResults = (results: SpotifySearchResults): Song[] => {
   }
 
   return results.items.map((item) => {
-    const albumArtUrl = item.album.images[0].url
+    // The last image in the array will be the smallest
+    const albumArtUrl = item.album.images[item.album.images.length - 1].url
 
     return {
       id: item.id,

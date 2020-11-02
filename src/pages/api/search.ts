@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { searchSpotify } from '~/utils/spotify'
+import { searchSpotify } from '~/lib/spotify'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {
@@ -11,7 +11,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const results = await searchSpotify(searchTerm)
     res.status(200).json(results)
   } catch (err) {
-    console.log(err)
+    console.error(err)
     res.status(400).json({ error: 'Error' })
   }
 }

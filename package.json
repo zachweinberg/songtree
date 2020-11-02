@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
+    "firebase-admin": "^9.3.0",
     "lodash": "^4.17.20",
     "next": "^9.5.5",
     "next-seo": "^4.10.0",
