@@ -2,6 +2,7 @@ import { GetServerSideProps, NextPage } from 'next'
 import { ReactNode } from 'react'
 import Page from '~/components/Page'
 import { Song } from '~/types'
+import { getOrCreateSong } from '~/lib/songs'
 
 interface Props {
   song: Song
@@ -9,17 +10,22 @@ interface Props {
 }
 
 const SongDetail: NextPage = ({ song }: Props) => {
+  console.log(song)
   return (
     <Page>
-      <div>{song.artist}</div>
+      <div>hey</div>
     </Page>
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (): Promise<{
+export const getServerSideProps: GetServerSideProps = async (
+  context
+): Promise<{
   props: { song: Song }
 }> => {
-  return { props: { song: { artist: 'hy' } } }
+  const songID = context.params.id as string
+  const song = await getOrCreateSong(songID)
+  return { props: { song } }
 }
 
 export default SongDetail

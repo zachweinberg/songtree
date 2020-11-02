@@ -24,12 +24,12 @@ interface SpotifyAlbum {
 
 interface SpotifyTrack {
   id: string
-  url: string
   popularity: number
   name: string
   duration_ms: number
   artists: SpotifyArtist[]
   album: SpotifyAlbum
+  url?: string
 }
 interface SpotifySearchResults {
   id: string
@@ -87,24 +87,43 @@ const getSpotifyToken = async (): Promise<SpotifyToken> => {
   return __token
 }
 
-const formatSpotifyResults = (results: SpotifySearchResults): Song[] => {
+const formatSong = (spotifyTrack: SpotifyTrack, isSearch = false): Song => {
+  // If we are in a search, we want the smallest album art thumbnail
+  let albumArtUrl: string
+  if (isSearch) {
+    albumArtUrl =
+      spotifyTrack.album.images[spotifyTrack.album.images.length - 1].url
+  } else {
+    albumArtUrl = spotifyTrack.album.images[0].url
+  }
+
+  return {
+    id: spotifyTrack.id,
+    name: spotifyTrack.name,
+    releaseDate: spotifyTrack.album.release_date,
+    artist: spotifyTrack.artists[0].name,
+    album: spotifyTrack.album.name,
+    albumArtUrl,
+  }
+}
+
+const formatSpotifySearchResults = (results: SpotifySearchResults): Song[] => {
   if (!results || !results.items) {
     return []
   }
+  return results.items.map((item) => formatSong(item, true))
+}
 
-  return results.items.map((item) => {
-    // The last image in the array will be the smallest
-    const albumArtUrl = item.album.images[item.album.images.length - 1].url
-
-    return {
-      id: item.id,
-      name: item.name,
-      releaseDate: item.album.release_date,
-      artist: item.artists[0].name,
-      album: item.album.name,
-      albumArtUrl,
-    }
+export const getSpotifySongData = async (songID: string): Promise<Song> => {
+  const token = await getSpotifyToken()
+  const { data } = await axios({
+    url: `https://api.spotify.com/v1/tracks/${songID}`,
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token.access_token}`,
+    },
   })
+  return formatSong(data)
 }
 
 // TODO: Type this response
@@ -118,5 +137,5 @@ export const searchSpotify = async (query: string) => {
       Authorization: `Bearer ${token.access_token}`,
     },
   })
-  return formatSpotifyResults(data.tracks)
+  return formatSpotifySearchResults(data.tracks)
 }

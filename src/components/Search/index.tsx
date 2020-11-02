@@ -15,7 +15,7 @@ const Search = () => {
   }
 
   const debouncedSearch = useCallback(
-    debounce((q) => searchTracks(q), 260),
+    debounce((q) => searchTracks(q), 200),
     []
   )
 
