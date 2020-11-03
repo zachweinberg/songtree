@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react'
+import Router from 'next/router'
 import axios from 'axios'
 import debounce from 'lodash/debounce'
 import Input from '~/components/Input'
@@ -18,6 +19,8 @@ const Search = () => {
     setSearchTerm('')
     setResults([])
   }
+
+  Router.events.on('routeChangeComplete', clearSearch)
 
   const debouncedSearch = useCallback(
     debounce((q) => searchTracks(q), 200),

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Input } from './styles'
+import { Input as StyledInput } from './styles'
 
 interface Props {
   value: string
@@ -8,8 +8,8 @@ interface Props {
   type: 'text' | 'search'
 }
 
-export default ({ value, onChange, placeholder, type }: Props) => (
-  <Input
+const Input = ({ value, onChange, placeholder, type }: Props) => (
+  <StyledInput
     type={type}
     value={value}
     onChange={(e) => {
@@ -18,3 +18,5 @@ export default ({ value, onChange, placeholder, type }: Props) => (
     placeholder={placeholder}
   />
 )
+
+export default Input

@@ -1,7 +1,14 @@
 import React from 'react'
 import { Song } from '~/types'
-import { SongInfo, SongTitle, AlbumArt, Description } from './styles'
-// import AlbumIcon from '~/components/Icons/AlbumIcon'
+import SongReactions from '~/components/SongReactions'
+import {
+  SongInfo,
+  SongTitle,
+  AlbumArt,
+  Description,
+  Sidebar,
+  Grid,
+} from './styles'
 
 interface Props {
   song: Song
@@ -9,16 +16,19 @@ interface Props {
 
 const SongView = ({ song }: Props) => {
   return (
-    <SongInfo>
-      <AlbumArt src={song.albumArtUrl} />
-      <div>
+    <Grid>
+      <Sidebar>
+        <AlbumArt src={song.albumArtUrl} />
+        <SongReactions song={song} />
+      </Sidebar>
+      <SongInfo>
         <SongTitle>{song.name}</SongTitle>
         <Description>By {song.artist}</Description>
         <Description>
           From {song.album} ({song.releaseYear})
         </Description>
-      </div>
-    </SongInfo>
+      </SongInfo>
+    </Grid>
   )
 }
 

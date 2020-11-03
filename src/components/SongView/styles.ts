@@ -1,16 +1,25 @@
 import styled from 'styled-components'
 import theme from '~/components/Theme'
 
-export const SongInfo = styled.div`
+export const Grid = styled.div`
   margin-top: 64px;
-  width: 900px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 330px minmax(min-content, max-content);
+  grid-template-rows: auto;
+  grid-gap: 35px;
+`
+
+export const Sidebar = styled.div`
+  grid-column: 1 / 2;
+`
+
+export const SongInfo = styled.div`
+  grid-column: 2 / 3;
 `
 
 export const AlbumArt = styled.img`
-  max-width: 300px;
   border-radius: ${theme.borderRadius};
-  margin-right: 35px;
+  width: 100%;
 `
 
 export const SongTitle = styled.h1`
@@ -24,7 +33,7 @@ export const Description = styled.h2`
   margin: 0;
   font-size: 22px;
   font-weight: 400;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   line-height: 1.4;
   margin-bottom: 8px;
 `
