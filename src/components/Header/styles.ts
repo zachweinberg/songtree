@@ -33,3 +33,12 @@ export const LogoContainer = styled.div`
     height: 24px;
   }
 `
+export const Logo = styled.a`
+  font-weight: 700;
+  font-size: 24px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.65;
+    transition: 0.2s opacity ease-in;
+  }
+`

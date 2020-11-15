@@ -35,7 +35,7 @@ export const SectionHeading = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 72px;
+  margin-top: 20px;
   margin-bottom: 48px;
   max-width: 50%;
 
@@ -50,7 +50,7 @@ export const Heading = styled.h3`
   font-weight: 700;
   color: var(--text-primary);
   text-align: center;
-
+  margin-bottom: 0;
   @media (max-width: 968px) {
     text-align: left;
     max-width: 100%;

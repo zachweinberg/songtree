@@ -1,0 +1,7 @@
+{
+  "name": "SongTree - Song Database",
+  "short_name": "SongTree",
+  "theme_color": "#101010",
+  "background_color": "#101010",
+  "display": "standalone"
+}

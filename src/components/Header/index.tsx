@@ -1,11 +1,16 @@
-import { Container, LogoContainer } from './styles'
+import Link from 'next/link'
+import { Container, LogoContainer, Logo } from './styles'
 import Search from '~/components/Search'
 import DarkModeToggle from '~/components/DarkModeToggle'
 
 const Header = () => {
   return (
     <Container>
-      <LogoContainer>SongTree</LogoContainer>
+      <LogoContainer>
+        <Link href="/">
+          <Logo>SONGTREE</Logo>
+        </Link>
+      </LogoContainer>
       <Search />
       <DarkModeToggle />
     </Container>
