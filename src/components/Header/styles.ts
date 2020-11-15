@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import theme from '~/components/Theme'
+const { breakpoints } = theme
 
 export const Container = styled.div`
   display: grid;
@@ -13,13 +15,6 @@ export const Container = styled.div`
   z-index: 3;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   transition: all 0.2s ease-in-out;
-
-  @media (max-width: 968px) {
-    padding: 8px 16px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: 'logo random' 'search search';
-  }
 `
 
 export const LogoContainer = styled.div`
@@ -27,11 +22,6 @@ export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   margin-top: 4px;
-
-  @media (max-width: 768px) {
-    width: 60px;
-    height: 24px;
-  }
 `
 export const Logo = styled.a`
   font-weight: 700;
@@ -39,6 +29,6 @@ export const Logo = styled.a`
   cursor: pointer;
   &:hover {
     opacity: 0.65;
-    transition: 0.2s opacity ease-in;
+    transition: 0.2s opacity ease-in-out;
   }
 `

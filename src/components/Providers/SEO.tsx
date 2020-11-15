@@ -3,13 +3,13 @@ import { DefaultSeo } from 'next-seo'
 
 // TODO: Finish SEO
 const SeoDetails = {
-  title: 'SongThoughts',
+  title: 'SONGTREE',
   description: 'A database of thoughts related to specific songs',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: '',
-    site_name: 'SongThoughts',
+    site_name: 'SONGTREE',
     images: [
       {
         url: '',

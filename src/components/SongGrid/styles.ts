@@ -20,7 +20,7 @@ export const AlbumArt = styled.img`
 
   &:hover {
     transform: translateY(-4px);
-    transition: 0.32s transform ease-out;
+    transition: 0.32s transform ease-in-out;
   }
 `
 

@@ -20,14 +20,6 @@ export const InnerContainer = styled.div`
   padding-left: 32px;
   padding-right: 32px;
   position: relative;
-
-  @media (max-width: 968px) {
-    align-items: flex-start;
-    max-width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 96px;
-  }
 `
 
 export const SectionHeading = styled.div`
@@ -38,11 +30,6 @@ export const SectionHeading = styled.div`
   margin-top: 20px;
   margin-bottom: 48px;
   max-width: 50%;
-
-  @media (max-width: 968px) {
-    align-items: flex-start;
-    max-width: 100%;
-  }
 `
 
 export const Heading = styled.h3`
@@ -51,10 +38,6 @@ export const Heading = styled.h3`
   color: var(--text-primary);
   text-align: center;
   margin-bottom: 0;
-  @media (max-width: 968px) {
-    text-align: left;
-    max-width: 100%;
-  }
 `
 
 export const Subheading = styled.h4`
@@ -62,11 +45,6 @@ export const Subheading = styled.h4`
   font-weight: 400;
   color: var(--text-tertiary);
   text-align: center;
-
-  @media (max-width: 968px) {
-    text-align: left;
-    max-width: 100%;
-  }
 `
 
 export const FullscreenContainer = styled.div`

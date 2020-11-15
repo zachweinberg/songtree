@@ -12,10 +12,6 @@ const GlobalStyles = createGlobalStyle`
     font-size: 18px;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: none;
-
-    @media (max-width: ${theme.breakpoints[3]}) {
-      font-size: 16px;
-    }
   }
 
   body {

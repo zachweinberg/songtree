@@ -2,16 +2,12 @@ import { COLORS } from './colors'
 
 const theme = {
   colors: COLORS,
-  breakpoints: [
-    '1440px', // 0
-    '1256px', // 1
-    '1080px', // 2
-    '968px', // 3
-    '768px', // 4
-    '640px', // 5
-    '512px', // 6
-    '420px', // 7
-  ],
+  breakpoints: {
+    sm: '@media (min-width: 576px)',
+    md: '@media (min-width: 768px)',
+    lg: '@media (min-width: 992px)',
+    xl: '@media (min-width: 1200px)',
+  },
   space: [
     '0px', // 0
     '4px', // 1
