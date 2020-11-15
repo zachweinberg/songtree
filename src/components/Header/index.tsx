@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import { Container, LogoContainer, Logo } from './styles'
-import Search from './Search'
 import DarkModeToggle from '~/components/DarkModeToggle'
+import Search from './Search'
+import { Container, Logo, LogoContainer } from './styles'
 
 const Header = () => {
   return (

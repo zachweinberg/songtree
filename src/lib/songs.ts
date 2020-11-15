@@ -1,6 +1,6 @@
-import { getDocument, createDocument, findDocuments } from './db'
-import { getSpotifySongData } from './spotify'
 import { Song } from '~/types'
+import { createDocument, findDocuments, getDocument } from './db'
+import { getSpotifySongData } from './spotify'
 
 const createSong = async (songID: string): Promise<Song> => {
   let songData = await getSpotifySongData(songID)

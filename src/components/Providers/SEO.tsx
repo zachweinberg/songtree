@@ -1,5 +1,5 @@
-import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
+import Head from 'next/head'
 
 // TODO: Finish SEO
 const SeoDetails = {

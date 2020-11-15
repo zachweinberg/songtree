@@ -1,9 +1,9 @@
-import { NextPage, GetServerSideProps } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import { ReactNode } from 'react'
-import Page, { SectionHeading, Heading, Subheading } from '~/components/Page'
+import Page, { Heading, SectionHeading, Subheading } from '~/components/Page'
 import SongGrid from '~/components/SongGrid'
-import { Song } from '~/types'
 import { getRecentSongs } from '~/lib/songs'
+import { Song } from '~/types'
 
 export const getServerSideProps: GetServerSideProps = async (): Promise<{
   props: { recentSongs: Song[] }

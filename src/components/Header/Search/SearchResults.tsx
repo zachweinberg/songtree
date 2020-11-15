@@ -1,13 +1,13 @@
 import Link from 'next/link'
-import { useRef, useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Song } from '~/types'
 import {
-  ResultsContainer,
-  ResultItem,
   AlbumArtwork,
+  ResultItem,
+  ResultsContainer,
+  SongArtist,
   SongInfo,
   SongTitle,
-  SongArtist,
 } from './styles'
 
 interface Props {

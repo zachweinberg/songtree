@@ -2,10 +2,10 @@ import React from 'react'
 import Header from '~/components/Header'
 import {
   Container,
-  SectionHeading,
   Heading,
-  Subheading,
   InnerContainer,
+  SectionHeading,
+  Subheading,
 } from './styles'
 
 export { SectionHeading, Heading, Subheading }

@@ -1,13 +1,12 @@
 import React from 'react'
 import { Song } from '~/types'
-import SongReactions from '~/components/SongReactions'
 import {
-  SongInfo,
-  SongTitle,
   AlbumArt,
   Description,
-  Sidebar,
   Grid,
+  Sidebar,
+  SongInfo,
+  SongTitle,
 } from './styles'
 
 interface Props {

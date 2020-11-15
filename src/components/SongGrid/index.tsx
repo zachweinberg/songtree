@@ -1,7 +1,7 @@
-import React from 'react'
 import Link from 'next/link'
+import React from 'react'
 import { Song } from '~/types'
-import { SongInfo, AlbumArt, SongTitle, SongArtist, Grid } from './styles'
+import { AlbumArt, Grid, SongArtist, SongInfo, SongTitle } from './styles'
 
 interface Props {
   songs: Song[]

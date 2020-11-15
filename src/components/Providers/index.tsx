@@ -1,6 +1,6 @@
 import GlobalStyles from '~/components/Theme/GlobalStyles'
-import SEO from './SEO'
 import { AppProvider } from './Context'
+import SEO from './SEO'
 
 interface Props {
   children?: any

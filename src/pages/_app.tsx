@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
-import Router from 'next/router'
 import Head from 'next/head'
+import Router from 'next/router'
 import NProgress from 'nprogress'
 import Providers from '~/components/Providers'
 

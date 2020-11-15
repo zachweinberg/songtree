@@ -2,8 +2,8 @@ import { GetServerSideProps, NextPage } from 'next'
 import { ReactNode } from 'react'
 import Page from '~/components/Page'
 import SongView from '~/components/SongView'
-import { Song } from '~/types'
 import { getOrCreateSong } from '~/lib/songs'
+import { Song } from '~/types'
 
 interface Props {
   song: Song

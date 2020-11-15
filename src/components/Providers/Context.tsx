@@ -1,4 +1,4 @@
-import { createContext, useMemo, useEffect, useState } from 'react'
+import { createContext, useMemo, useState } from 'react'
 import Theme from '~/components/Theme'
 
 export const AppContext = createContext(null)

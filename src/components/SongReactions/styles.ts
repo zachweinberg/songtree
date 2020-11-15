@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import theme from '~/components/Theme'
 
 export const Grid = styled.div`
   margin-top: 64px;
