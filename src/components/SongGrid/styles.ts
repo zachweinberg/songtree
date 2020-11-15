@@ -3,19 +3,24 @@ import theme from '~/components/Theme'
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  grid-gap: 35px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 18px;
+  max-width: 100%;
+  ${theme.breakpoints.md} {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    max-width: 1000px;
+  }
 `
 
 export const SongInfo = styled.a`
-  max-width: 270px;
-  width: 220px;
+  max-width: 100%;
 `
 
 export const AlbumArt = styled.img`
   border-radius: ${theme.borderRadius};
-  width: 100%;
+  max-width: 100%;
   cursor: pointer;
 
   &:hover {
@@ -27,7 +32,8 @@ export const AlbumArt = styled.img`
 export const SongTitle = styled.h1`
   font-size: 21px;
   font-weight: 700;
-  color: var(--text-primary);
+  color: ${theme.colors.white[1]};
+  margin-top: 0;
   margin-bottom: 3px;
 `
 
@@ -35,6 +41,6 @@ export const SongArtist = styled.h2`
   margin: 0;
   font-size: 17px;
   font-weight: 400;
-  color: var(--text-secondary);
+  color: ${theme.colors.text[1]};
   line-height: 1.4;
 `

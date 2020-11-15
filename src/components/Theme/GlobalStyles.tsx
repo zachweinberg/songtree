@@ -6,7 +6,7 @@ const GlobalStyles = createGlobalStyle`
   ${normalize}
 
   html {
-    background: var(--bg-primary);
+    background: ${theme.colors.black[1]};
     font-family: ${theme.fonts.body};
     line-height: ${theme.lineHeights.body};
     font-size: 18px;
@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    color: var(--text-primary);
+    color: ${theme.colors.white[1]};
   }
 
   #nprogress {
@@ -23,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
 }
 
   #nprogress .bar {
-    background: ${theme.colors['purple-accent'].dark};
+    background: ${theme.colors.purple[1]};
     position: fixed;
     z-index: 2000;
     top: 0;

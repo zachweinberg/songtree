@@ -9,13 +9,16 @@ export const Container = styled.div`
   position: relative;
   grid-area: search;
   margin-top: 7px;
+  ${theme.breakpoints.md} {
+    margin-top: 0;
+  }
 `
 
 export const ResultsContainer = styled.div`
   position: absolute;
   top: 48px;
   width: 100%;
-  background: var(--bg-secondary);
+  background: ${theme.colors.gray[1]};
   transition: all 0.2s ease-in-out 0s;
   border-radius: ${theme.borderRadius};
   z-index: 1000;
@@ -30,13 +33,13 @@ export const ResultsContainer = styled.div`
 
 export const ResultItem = styled.div`
   padding: 10px;
-  border-bottom: 1px solid var(--border-primary);
+  border-bottom: 1px solid ${theme.colors.border[1]};
   display: flex;
   flex: 1 0 auto;
   align-items: center;
 
   &:hover {
-    background: var(--bg-primary);
+    background: ${theme.colors.gray[1]};
   }
 `
 
@@ -55,7 +58,7 @@ export const SongInfo = styled.div`
 export const SongTitle = styled.p`
   font-size: 16px;
   font-weight: 500;
-  color: var(--text-primary);
+  color: ${theme.colors.white[1]};
   line-height: 1.2;
   margin-top: 2px;
 `
@@ -63,5 +66,5 @@ export const SongTitle = styled.p`
 export const SongArtist = styled.p`
   font-size: 14px;
   font-weight: 400;
-  color: var(--text-primary);
+  color: ${theme.colors.white[1]};
 `

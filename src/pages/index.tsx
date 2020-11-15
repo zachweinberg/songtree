@@ -26,8 +26,8 @@ const Home: NextPage = ({ recentSongs }: Props) => {
       <SectionHeading>
         <Heading>SONGTREE</Heading>
         <Subheading>Recently Added Songs</Subheading>
-        <SongGrid songs={recentSongs} />
       </SectionHeading>
+      <SongGrid songs={recentSongs} />
     </Page>
   )
 }

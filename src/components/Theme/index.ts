@@ -1,7 +1,25 @@
-import { COLORS } from './colors'
-
 const theme = {
-  colors: COLORS,
+  colors: {
+    black: {
+      1: '#101010',
+    },
+    gray: {
+      1: '#212121',
+      2: '#94A1B2',
+    },
+    white: {
+      1: '#FFFFFE',
+    },
+    text: {
+      1: '#94A1B2',
+    },
+    border: {
+      1: '#C4C4C4',
+    },
+    purple: {
+      1: '#7F5AF0',
+    },
+  },
   breakpoints: {
     sm: '@media (min-width: 576px)',
     md: '@media (min-width: 768px)',

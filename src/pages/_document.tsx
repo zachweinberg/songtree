@@ -1,7 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 import React from 'react'
 import { ServerStyleSheet } from 'styled-components'
-import { FallbackStyles, MagicScriptTag } from '~/components/Theme/cssVariables'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -33,14 +32,8 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head>
-          {/* If JS is disabled, populate our css variable styling here */}
-          <FallbackStyles />
-        </Head>
-
+        <Head></Head>
         <body>
-          {/* Magic script tag will modify css variables at runtime */}
-          <MagicScriptTag />
           <Main />
           <NextScript />
         </body>

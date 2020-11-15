@@ -2,21 +2,29 @@ import styled from 'styled-components'
 import theme from '~/components/Theme'
 
 export const Input = styled.input`
-  border-radius: ${theme.borderRadius};
-  background: var(--bg-primary);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-primary);
+  border-radius: ${theme.borderRadius} !important;
+  background: ${theme.colors.black[1]};
+  color: ${theme.colors.gray[2]};
+  border: 1px solid ${theme.colors.border[1]};
   padding: 12px 16px;
   width: 100%;
   box-shadow: none;
   font-size: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  ::-webkit-input-placeholder {
+    text-align: center;
+  }
+  ::-webkit-input-placeholder {
+    text-align: center;
+  }
   &:hover {
     box-shadow: none;
     transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out,
       transform 0.3s ease-in-out;
   }
   &:focus {
-    background: var(--bg-secondary);
+    background: ${theme.colors.gray[1]};
     border-radius: ${theme.borderRadius} !important;
     box-shadow: none;
     transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out,

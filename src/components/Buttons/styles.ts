@@ -5,13 +5,13 @@ import { ButtonSize, ButtonType } from './index'
 const calcPadding = (size: ButtonSize) => {
   switch (size) {
     case 'sm':
-      return '6px 8px'
+      return '4px 8px'
     case 'md':
-      return '12px 16px'
+      return '10px 16px'
     case 'lg':
-      return '24px 32px'
+      return '20px 32px'
     default: {
-      return '12px 16px'
+      return '10px 16px'
     }
   }
 }
@@ -33,22 +33,22 @@ const calcFontSize = (size: ButtonSize) => {
 const calcBGColor = (type: ButtonType) => {
   switch (type) {
     case 'primary':
-      return 'var(--purple-accent)'
+      return theme.colors.purple[1]
     case 'secondary':
-      return `var(--text-primary)`
+      return theme.colors.white[1]
     default:
-      return 'var(--text-primary)'
+      return theme.colors.white[1]
   }
 }
 
 const calcColor = (type: ButtonType) => {
   switch (type) {
     case 'primary':
-      return 'white'
+      return theme.colors.white[1]
     case 'secondary':
-      return `black`
+      return theme.colors.black[1]
     default:
-      return 'black'
+      return theme.colors.black[1]
   }
 }
 
@@ -79,6 +79,6 @@ export const ButtonContainer = styled.button`
       props.disabled ? 'none' : `${theme.shadows.button}`};
   }
   &:focus {
-    box-shadow: 0 0 0 2px var(--text-link);
+    box-shadow: 0 0 0 2px ${theme.colors.gray[2]};
   }
 `

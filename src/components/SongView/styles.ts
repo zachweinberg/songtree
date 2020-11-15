@@ -25,7 +25,7 @@ export const AlbumArt = styled.img`
 export const SongTitle = styled.h1`
   font-size: 36px;
   font-weight: 700;
-  color: var(--text-primary);
+  color:  color: ${theme.colors.white[1]};
   margin-bottom: 10px;
 `
 
@@ -33,7 +33,7 @@ export const Description = styled.h2`
   margin: 0;
   font-size: 22px;
   font-weight: 400;
-  color: var(--text-secondary);
+  color:  color: ${theme.colors.text[1]};
   line-height: 1.4;
   margin-bottom: 8px;
 `

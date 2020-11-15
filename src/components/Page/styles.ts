@@ -16,9 +16,9 @@ export const InnerContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   flex: 1 0 auto;
-  padding-top: 64px;
-  padding-left: 32px;
-  padding-right: 32px;
+  margin-top: 64px;
+  margin-left: 16px;
+  margin-right: 16px;
   position: relative;
 `
 
@@ -35,7 +35,7 @@ export const SectionHeading = styled.div`
 export const Heading = styled.h3`
   font-size: 40px;
   font-weight: 700;
-  color: var(--text-primary);
+  color: ${theme.colors.white[1]};
   text-align: center;
   margin-bottom: 0;
 `
@@ -43,7 +43,7 @@ export const Heading = styled.h3`
 export const Subheading = styled.h4`
   font-size: 22px;
   font-weight: 400;
-  color: var(--text-tertiary);
+  color: ${theme.colors.white[1]};
   text-align: center;
 `
 
