@@ -6,6 +6,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
+  grid-area: search;
 `
 
 export const ResultsContainer = styled.div`
