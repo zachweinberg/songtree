@@ -1,7 +1,18 @@
 import { ButtonContainer } from './styles'
 
-const Button = ({ children }) => {
-  return <ButtonContainer>{children}</ButtonContainer>
+export type ButtonSize = 'sm' | 'md' | 'lg'
+export type ButtonType = 'primary' | 'secondary'
+
+interface Props {
+  type: ButtonType
+  size: ButtonSize
+  disabled?: boolean
+  style?: any
+  children: React.ReactChild
+}
+
+const Button = (props: Props) => {
+  return <ButtonContainer {...props}>{props.children}</ButtonContainer>
 }
 
 export default Button

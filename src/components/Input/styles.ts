@@ -17,12 +17,12 @@ export const Input = styled.input`
   }
   &:focus {
     background: var(--bg-secondary);
-    border-radius: 4px !important;
+    border-radius: ${theme.borderRadius} !important;
     box-shadow: none;
     transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out,
       transform 0.3s ease-in-out;
   }
   &:active {
-    border-radius: 4px !important;
+    border-radius: ${theme.borderRadius} !important;
   }
 `

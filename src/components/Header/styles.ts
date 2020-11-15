@@ -7,8 +7,9 @@ export const Container = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    'logo actions'
+    'logo auth'
     'search search';
+  align-items: center;
   padding: 16px;
   position: fixed;
   top: 0;
@@ -26,6 +27,13 @@ export const LogoContainer = styled.div`
   align-items: center;
   margin-top: 4px;
 `
+
+export const AuthContainer = styled.div`
+  grid-area: auth;
+  display: flex;
+  justify-content: flex-end;
+`
+
 export const Logo = styled.a`
   font-weight: 700;
   font-size: 24px;

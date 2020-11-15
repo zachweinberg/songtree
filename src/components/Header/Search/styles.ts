@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import theme from '~/components/Theme'
 
 export const Container = styled.div`
   display: flex;
@@ -7,6 +8,7 @@ export const Container = styled.div`
   justify-content: center;
   position: relative;
   grid-area: search;
+  margin-top: 7px;
 `
 
 export const ResultsContainer = styled.div`
@@ -15,7 +17,7 @@ export const ResultsContainer = styled.div`
   width: 100%;
   background: var(--bg-secondary);
   transition: all 0.2s ease-in-out 0s;
-  border-radius: 4px;
+  border-radius: ${theme.borderRadius};
   z-index: 1000;
   display: flex;
   flex-direction: column;
@@ -39,7 +41,7 @@ export const ResultItem = styled.div`
 `
 
 export const AlbumArtwork = styled.img`
-  border-radius: 4px;
+  border-radius: ${theme.borderRadius}
   width: 60px;
   height: 60px;
 `
