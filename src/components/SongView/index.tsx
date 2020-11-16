@@ -1,5 +1,6 @@
 import React from 'react'
 import { Song } from '~/types'
+import SongReactions from './SongReactions'
 import {
   AlbumArt,
   Description,
@@ -18,7 +19,7 @@ const SongView = ({ song }: Props) => {
     <Grid>
       <Sidebar>
         <AlbumArt src={song.albumArtUrl} />
-        {/* <SongReactions song={song} /> */}
+        <SongReactions song={song} />
       </Sidebar>
       <SongInfo>
         <SongTitle>{song.name}</SongTitle>

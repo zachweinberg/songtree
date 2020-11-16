@@ -38,10 +38,11 @@ export const SongTitle = styled.h1`
   font-size: 36px;
   font-weight: 700;
   color: ${theme.colors.white[1]};
+  margin-top: 5px;
   margin-bottom: 10px;
 `
 
-export const Description = styled.h2`
+export const Description = styled.p`
   margin: 0;
   font-size: 22px;
   font-weight: 400;
