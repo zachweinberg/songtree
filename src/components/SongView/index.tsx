@@ -24,7 +24,7 @@ const SongView = ({ song }: Props) => {
         <SongTitle>{song.name}</SongTitle>
         <Description>By {song.artist}</Description>
         <Description>
-          From {song.album} ({song.releaseYear})
+          {song.album} ({song.releaseYear})
         </Description>
       </SongInfo>
     </Grid>

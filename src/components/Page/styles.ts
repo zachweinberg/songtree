@@ -25,26 +25,28 @@ export const InnerContainer = styled.div`
 export const SectionHeading = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 48px;
-  max-width: 50%;
 `
 
 export const Heading = styled.h3`
-  font-size: 40px;
+  font-size: 38px;
   font-weight: 700;
   color: ${theme.colors.white[1]};
-  text-align: center;
-  margin-bottom: 0;
+  margin-bottom: 5px;
+  ${theme.breakpoints.md} {
+    text-align: center;
+  }
 `
 
 export const Subheading = styled.h4`
   font-size: 22px;
   font-weight: 400;
-  color: ${theme.colors.white[1]};
-  text-align: center;
+  color: ${theme.colors.gray[2]};
+  margin: 0;
+  ${theme.breakpoints.md} {
+    text-align: center;
+  }
 `
 
 export const FullscreenContainer = styled.div`

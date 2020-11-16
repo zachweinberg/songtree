@@ -5,7 +5,8 @@ const theme = {
     },
     gray: {
       1: '#212121',
-      2: '#94A1B2',
+      2: '#a9abb6',
+      3: '#94A1B2',
     },
     white: {
       1: '#FFFFFE',
