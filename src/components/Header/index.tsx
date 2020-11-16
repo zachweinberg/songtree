@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Button from '~/components/Buttons'
-import DarkModeToggle from '~/components/DarkModeToggle'
 import Search from './Search'
 import { AuthContainer, Container, Logo, LogoContainer } from './styles'
 
@@ -21,7 +20,6 @@ const Header = () => {
         </Button>
       </AuthContainer>
       <Search />
-      <DarkModeToggle />
     </Container>
   )
 }

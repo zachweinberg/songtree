@@ -3,16 +3,23 @@ import debounce from 'lodash/debounce'
 import Router from 'next/router'
 import { useCallback, useState } from 'react'
 import Input from '~/components/Input'
+import Loader from '~/components/Loader'
 import SearchResults from './SearchResults'
 import { Container } from './styles'
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [results, setResults] = useState([])
+  const [searching, setSearching] = useState(false)
 
   const searchTracks = async (query: string) => {
+    setSearching(true)
     const { data } = await axios.post('/api/search', { searchTerm: query })
     setResults(data)
+
+    // Small delay to allow the user to see the spinner
+    // in case the request resolves super fast
+    setTimeout(() => setSearching(false), 200)
   }
 
   const clearSearch = () => {
@@ -20,6 +27,8 @@ const Search = () => {
     setResults([])
   }
 
+  // Sometimes the search results menu gets stuck on new page loads,
+  // so we need to manually do this
   Router.events.on('routeChangeComplete', clearSearch)
 
   const debouncedSearch = useCallback(
@@ -45,8 +54,19 @@ const Search = () => {
         value={searchTerm}
         aria-label="search"
         placeholder="Search for songs, artists and albums"
-        type="search"
+        type="text"
       />
+      {searching && (
+        <div
+          style={{
+            position: 'absolute',
+            right: '10px',
+            top: `calc(50% - 10px)`,
+          }}
+        >
+          <Loader />
+        </div>
+      )}
       {results && results.length > 0 && (
         <SearchResults
           onOutsideClick={clearSearch}

@@ -14,7 +14,7 @@ const theme = {
       1: '#94A1B2',
     },
     border: {
-      1: '#C4C4C4',
+      1: '#6e6e6e',
     },
     purple: {
       1: '#7F5AF0',

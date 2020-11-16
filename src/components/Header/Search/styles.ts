@@ -9,8 +9,12 @@ export const Container = styled.div`
   position: relative;
   grid-area: search;
   margin-top: 7px;
+
   ${theme.breakpoints.md} {
     margin-top: 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 570px;
   }
 `
 

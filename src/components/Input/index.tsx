@@ -6,15 +6,17 @@ interface Props {
   onChange: Function
   placeholder: string
   type: 'text' | 'search'
+  disabled?: boolean
 }
 
-const Input = ({ value, onChange, placeholder, type }: Props) => (
+const Input = ({ value, onChange, placeholder, type, disabled }: Props) => (
   <StyledInput
     type={type}
     value={value}
     onChange={(e) => {
       onChange(e)
     }}
+    disabled={disabled}
     placeholder={placeholder}
   />
 )
