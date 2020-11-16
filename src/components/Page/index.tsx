@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '~/components/Footer'
 import Header from '~/components/Header'
 import {
   Container,
@@ -21,6 +22,7 @@ export default function Page(props: Props) {
     <Container>
       <Header />
       <InnerContainer>{children}</InnerContainer>
+      <Footer />
     </Container>
   )
 }
