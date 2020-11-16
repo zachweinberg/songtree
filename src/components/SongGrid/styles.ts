@@ -14,7 +14,7 @@ export const Grid = styled.div`
   }
 `
 
-export const SongInfo = styled.a`
+export const SongInfo = styled.div`
   max-width: 100%;
 `
 

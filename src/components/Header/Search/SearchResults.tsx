@@ -19,15 +19,13 @@ interface Props {
 const renderSongResults = (songs: Song[]) => {
   return songs.map((song) => (
     <Link href={`/song/${song.id}`} key={song.id}>
-      <a>
-        <ResultItem>
-          <AlbumArtwork src={song.albumArtUrl} />
-          <SongInfo>
-            <SongTitle>{song.name}</SongTitle>
-            <SongArtist>{song.artist}</SongArtist>
-          </SongInfo>
-        </ResultItem>
-      </a>
+      <ResultItem>
+        <AlbumArtwork src={song.albumArtUrl} />
+        <SongInfo>
+          <SongTitle>{song.name}</SongTitle>
+          <SongArtist>{song.artist}</SongArtist>
+        </SongInfo>
+      </ResultItem>
     </Link>
   ))
 }

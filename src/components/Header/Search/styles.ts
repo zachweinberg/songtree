@@ -28,47 +28,46 @@ export const ResultsContainer = styled.div`
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  flex: 0 0 auto;
   height: auto;
   max-height: 360px;
   overflow-y: scroll;
   max-width: 100%;
 `
 
-export const ResultItem = styled.div`
-  padding: 10px;
-  border-bottom: 1px solid ${theme.colors.border[1]};
+export const ResultItem = styled.a`
   display: flex;
-  flex: 1 0 auto;
-  align-items: center;
-
+  padding: 10px 15px;
+  border-bottom: 1px solid ${theme.colors.border[1]};
+  cursor: pointer;
   &:hover {
-    background: ${theme.colors.gray[1]};
+    background-color: #282828;
   }
 `
 
 export const AlbumArtwork = styled.img`
-  border-radius: ${theme.borderRadius}
-  width: 60px;
-  height: 60px;
+  border-radius: ${theme.borderRadius};
+  height: 100%;
+  max-width: 100px;
 `
 
 export const SongInfo = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 14px;
+  justify-content: space-around;
+  margin-left: 12px;
 `
 
 export const SongTitle = styled.p`
-  font-size: 16px;
+  font-size: 21px;
   font-weight: 500;
   color: ${theme.colors.white[1]};
   line-height: 1.2;
-  margin-top: 2px;
+  margin: 0;
 `
 
 export const SongArtist = styled.p`
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 400;
-  color: ${theme.colors.white[1]};
+  color: ${theme.colors.gray[3]};
+  margin: 0;
 `

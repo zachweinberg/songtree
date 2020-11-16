@@ -11,13 +11,15 @@ const SongGrid = ({ songs }: Props) => {
   return (
     <Grid>
       {songs.map((song) => (
-        <Link href={`/song/${song.id}`} key={song.id}>
-          <SongInfo>
-            <AlbumArt src={song.albumArtUrl} />
-            <SongTitle>{song.name}</SongTitle>
-            <SongArtist>{song.artist}</SongArtist>
-          </SongInfo>
-        </Link>
+        <SongInfo key={song.id}>
+          <Link href={`/song/${song.id}`}>
+            <a>
+              <AlbumArt src={song.albumArtUrl} />
+            </a>
+          </Link>
+          <SongTitle>{song.name}</SongTitle>
+          <SongArtist>{song.artist}</SongArtist>
+        </SongInfo>
       ))}
     </Grid>
   )
