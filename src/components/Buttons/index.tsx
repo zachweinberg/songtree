@@ -9,6 +9,7 @@ interface Props {
   disabled?: boolean
   style?: any
   children: React.ReactChild
+  onClick?: () => any
 }
 
 const Button = (props: Props) => {

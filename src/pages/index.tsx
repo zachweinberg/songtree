@@ -20,7 +20,7 @@ interface Props {
   children: ReactNode
 }
 
-const Home: NextPage = ({ recentSongs }: Props) => {
+const Home: NextPage = (props: Props) => {
   return (
     <Page>
       <SectionHeading>
@@ -29,7 +29,7 @@ const Home: NextPage = ({ recentSongs }: Props) => {
           A database of songs with comments from people around the world
         </Subheading>
       </SectionHeading>
-      <SongGrid songs={recentSongs} />
+      <SongGrid songs={props.recentSongs} />
     </Page>
   )
 }

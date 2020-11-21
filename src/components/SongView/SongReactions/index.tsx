@@ -8,7 +8,7 @@ interface Props {
 
 const SongReactions = ({ song }: Props) => {
   return (
-    <Container style={{ display: 'flex', flexDirection: 'column' }}>
+    <Container>
       <ReactionButton>Like</ReactionButton>
       <ReactionButton>Dislike</ReactionButton>
     </Container>

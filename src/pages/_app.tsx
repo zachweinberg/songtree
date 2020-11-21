@@ -1,3 +1,4 @@
+import { Provider as AuthProvider } from 'next-auth/client'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
@@ -19,9 +20,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <link rel="stylesheet" type="text/css" href="/nprogress.css" />
       </Head>
-      <Providers>
-        <Component {...pageProps} />
-      </Providers>
+      <AuthProvider session={pageProps.session}>
+        <Providers>
+          <Component {...pageProps} />
+        </Providers>
+      </AuthProvider>
     </>
   )
 }

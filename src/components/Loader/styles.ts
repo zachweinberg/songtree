@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components'
-import theme from '~/components/Theme'
 
 const spin = keyframes`
   0% {
@@ -30,7 +29,7 @@ export const Loader = styled.i`
     width: 100%;
     height: 100%;
     border-width: 2px;
-    border-color: ${theme.colors.purple[1]} #481ad5 transparent transparent;
+    border-color: #fff #fff transparent transparent;
     border-style: solid;
     border-radius: 20px;
     box-sizing: border-box;
