@@ -28,6 +28,19 @@ const SongDetail: NextPage = ({ song }: Props) => {
         <title>
           {song.name} by {song.artist} - SONGTREE
         </title>
+        <meta
+          property="og:title"
+          content={`  ${song.name} by ${song.artist} - SONGTREE`}
+        />
+        <meta
+          property="og:description"
+          content={`SONGTREE is a database of songs where anyone can comment and contribute to the database`}
+        />
+        <meta property="og:image" content={song.albumArtUrl} />
+        <meta
+          property="og:url"
+          content={`https://songtree.app/song/${song.id}}`}
+        />
       </Head>
       <Page>
         <SongView song={song} />
