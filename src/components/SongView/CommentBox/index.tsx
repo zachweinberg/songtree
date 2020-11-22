@@ -19,7 +19,7 @@ const CommentBox = () => {
       <Button
         type="secondary"
         size="md"
-        isabled={comment.length === 0}
+        disabled={comment.length === 0}
         style={{ marginTop: '10px' }}
       >
         Comment
