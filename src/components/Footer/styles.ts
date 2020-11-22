@@ -5,4 +5,7 @@ export const Container = styled.footer`
   margin-bottom: 20px;
   text-align: center;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `

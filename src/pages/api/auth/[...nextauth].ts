@@ -13,6 +13,10 @@ const options: InitOptions = {
       clientId: process.env.SPOTIFY_CLIENT_ID,
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
     }),
+    Providers.Google({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
   ],
   session: { maxAge: 30 * 24 * 60 * 60 }, // 30 days
   jwt: { secret: process.env.JWT_SECRET },

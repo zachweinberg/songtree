@@ -1,5 +1,6 @@
 import { signIn } from 'next-auth/client'
 import Button from '~/components/Buttons'
+import Icon from '~/components/Icon'
 import { AuthProviders } from './index'
 import { ButtonContainer, Container } from './styles'
 
@@ -7,8 +8,10 @@ interface Props {
   providers: AuthProviders
 }
 
-const providerIcons = {
-  github: '',
+const iconColors = {
+  github: '#000',
+  google: '#e94235',
+  spotify: '#1DB954',
 }
 
 const LoginButtons = ({ providers }: Props) => {
@@ -18,10 +21,16 @@ const LoginButtons = ({ providers }: Props) => {
         <ButtonContainer key={provider.name}>
           <Button
             block
-            type="secondary"
+            type="primary"
             size="md"
             onClick={() => signIn(provider.id)}
+            bg={iconColors[provider.id]}
           >
+            <Icon
+              name={provider.id}
+              size="20"
+              style={{ marginRight: '8px', fill: '#fff' }}
+            />
             Sign in with {provider.name}
           </Button>
         </ButtonContainer>

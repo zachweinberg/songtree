@@ -18,11 +18,9 @@ const Header = () => {
         {!session ? (
           <>
             <Link href="/login">
-              <a>
-                <Button type="secondary" size="md">
-                  Login
-                </Button>
-              </a>
+              <Button type="secondary" size="md">
+                Login
+              </Button>
             </Link>
             <Button style={{ marginLeft: '10px' }} type="primary" size="md">
               Sign up

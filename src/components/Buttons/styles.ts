@@ -53,6 +53,9 @@ const calcColor = (type: ButtonType) => {
 }
 
 export const ButtonContainer = styled.button`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: ${(props) => (props.block ? '100%' : 'auto')};
   background-color: ${(props) =>
     props.bg ? props.bg : calcBGColor(props.type)};
@@ -70,12 +73,11 @@ export const ButtonContainer = styled.button`
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
   box-shadow: ${(props) =>
     props.disabled ? 'none' : `0 1px 2px rgba(0,0,0,0.04)`};
-
   &:disabled {
     cursor: not-allowed;
   }
   &:hover {
-    opacity: 0.9;
+    opacity: 0.8;
     transition: all 0.17s ease-in-out;
     box-shadow: ${(props) =>
       props.disabled ? 'none' : `${theme.shadows.button}`};
