@@ -11,7 +11,7 @@ const createSong = async (songID: string): Promise<Song> => {
 
 export const getRecentSongs = async (): Promise<Song[]> => {
   const recentSongs = await findDocuments<Song>(
-    'songs',
+    'recentSongs', // We use this collection so we have control over what is shown on the homepage
     [],
     { fieldName: 'createdAt', sortDirection: 'desc' },
     8

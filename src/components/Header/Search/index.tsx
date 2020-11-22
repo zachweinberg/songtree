@@ -1,6 +1,5 @@
 import axios from 'axios'
 import debounce from 'lodash/debounce'
-import Router from 'next/router'
 import { useCallback, useState } from 'react'
 import Input from '~/components/Input'
 import Loader from '~/components/Loader'
@@ -26,10 +25,6 @@ const Search = () => {
     setSearchTerm('')
     setResults([])
   }
-
-  // Sometimes the search results menu gets stuck on new page loads,
-  // so we need to manually do this
-  Router.events.on('routeChangeComplete', clearSearch)
 
   const debouncedSearch = useCallback(
     debounce((q) => searchTracks(q), 200),

@@ -8,8 +8,10 @@ interface Props {
   size: ButtonSize
   disabled?: boolean
   style?: any
-  children: React.ReactChild
+  children: React.ReactNode
   onClick?: () => any
+  bg?: string
+  block?: boolean
 }
 
 const Button = (props: Props) => {

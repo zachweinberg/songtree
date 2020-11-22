@@ -17,9 +17,10 @@ export const InnerContainer = styled.div`
   justify-content: flex-start;
   flex: 1 0 auto;
   margin-top: 64px;
-  margin-left: 16px;
-  margin-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
+  width: ${(props) => (props.width ? props.width : 'auto')};
 `
 
 export const SectionHeading = styled.div`

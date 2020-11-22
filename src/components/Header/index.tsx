@@ -1,11 +1,11 @@
-import { signin, signout, useSession } from 'next-auth/client'
+import { signout, useSession } from 'next-auth/client'
 import Link from 'next/link'
 import Button from '~/components/Buttons'
 import Search from './Search'
 import { AuthContainer, Container, Logo, LogoContainer } from './styles'
 
 const Header = () => {
-  const [session, loading] = useSession()
+  const [session] = useSession()
 
   return (
     <Container>
@@ -17,10 +17,14 @@ const Header = () => {
       <AuthContainer>
         {!session ? (
           <>
-            <Button type="secondary" size="md" onClick={() => signin()}>
-              Login
-            </Button>
-            <Button type="primary" size="md" style={{ marginLeft: '8px' }}>
+            <Link href="/login">
+              <a>
+                <Button type="secondary" size="md">
+                  Login
+                </Button>
+              </a>
+            </Link>
+            <Button style={{ marginLeft: '10px' }} type="primary" size="md">
               Sign up
             </Button>
           </>

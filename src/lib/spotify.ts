@@ -137,5 +137,6 @@ export const searchSpotify = async (query: string) => {
       Authorization: `Bearer ${token.access_token}`,
     },
   })
+
   return formatSpotifySearchResults(data.tracks)
 }

@@ -53,7 +53,9 @@ const calcColor = (type: ButtonType) => {
 }
 
 export const ButtonContainer = styled.button`
-  background-color: ${(props) => calcBGColor(props.type)};
+  width: ${(props) => (props.block ? '100%' : 'auto')};
+  background-color: ${(props) =>
+    props.bg ? props.bg : calcBGColor(props.type)};
   color: ${(props) => calcColor(props.type)};
   text-align: center;
   font-weight: 600;
