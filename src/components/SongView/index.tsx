@@ -1,5 +1,6 @@
 import React from 'react'
 import { Song } from '~/types'
+import CommentBox from './CommentBox'
 import SongReactions from './SongReactions'
 import {
   AlbumArt,
@@ -9,7 +10,6 @@ import {
   SongInfo,
   SongTitle,
 } from './styles'
-
 interface Props {
   song: Song
 }
@@ -27,6 +27,7 @@ const SongView = ({ song }: Props) => {
         <Description>
           {song.album} ({song.releaseYear})
         </Description>
+        <CommentBox />
       </SongInfo>
     </Grid>
   )

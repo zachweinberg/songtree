@@ -13,16 +13,13 @@ export { SectionHeading, Heading, Subheading }
 
 interface Props {
   children: React.ReactNode
-  innerWidth?: string
 }
 
 export default function Page(props: Props) {
-  const { children, innerWidth } = props
-
   return (
     <Container>
       <Header />
-      <InnerContainer width={innerWidth}>{children}</InnerContainer>
+      <InnerContainer>{props.children}</InnerContainer>
       <Footer />
     </Container>
   )

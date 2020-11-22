@@ -1,10 +1,10 @@
 import { GetServerSideProps, NextPage } from 'next'
+import Head from 'next/head'
 import { ReactNode } from 'react'
 import Page from '~/components/Page'
 import SongView from '~/components/SongView'
 import { getOrCreateSong } from '~/lib/songs'
 import { Song } from '~/types'
-
 interface Props {
   song: Song
   children: ReactNode
@@ -23,9 +23,16 @@ export const getServerSideProps: GetServerSideProps = async (
 
 const SongDetail: NextPage = ({ song }: Props) => {
   return (
-    <Page>
-      <SongView song={song} />
-    </Page>
+    <>
+      <Head>
+        <title>
+          {song.name} by {song.artist} - SONGTREE
+        </title>
+      </Head>
+      <Page>
+        <SongView song={song} />
+      </Page>
+    </>
   )
 }
 

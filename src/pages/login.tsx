@@ -17,7 +17,7 @@ const Login = ({ providers }: Props) => {
   }
 
   return (
-    <Page innerWidth="360px">
+    <Page>
       <Heading>Log in to SONGTREE</Heading>
       <LoginButtons providers={providers} />
     </Page>

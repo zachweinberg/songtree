@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import theme from '~/components/Theme'
 
-export const Input = styled.input`
+const base = css`
   border-radius: ${theme.borderRadius} !important;
   background: ${theme.colors.black[1]};
   color: ${theme.colors.gray[2]};
@@ -12,12 +12,6 @@ export const Input = styled.input`
   font-size: 16px;
   -webkit-appearance: none;
   -moz-appearance: none;
-  ::-webkit-input-placeholder {
-    text-align: center;
-  }
-  ::-webkit-input-placeholder {
-    text-align: center;
-  }
   &:hover {
     box-shadow: none;
     transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out,
@@ -33,4 +27,13 @@ export const Input = styled.input`
   &:active {
     border-radius: ${theme.borderRadius} !important;
   }
+`
+export const Input = styled.input`
+  ${base}
+  text-align: center;
+`
+
+export const StyledTextArea = styled.textarea`
+  ${base}
+  resize: vertical;
 `

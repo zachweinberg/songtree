@@ -6,10 +6,14 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
+  /* justify-content: center; */
+  width: 100%;
+
   ${theme.breakpoints.md} {
-    grid-template-columns: 330px minmax(min-content, max-content);
+    grid-template-columns: 330px auto;
     grid-template-rows: auto;
-    grid-gap: 35px;
+    grid-gap: 65px;
+    max-width: 1000px;
   }
 `
 
