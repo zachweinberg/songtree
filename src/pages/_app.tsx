@@ -18,7 +18,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
-        <link rel="stylesheet" type="text/css" href="/nprogress.css" />
       </Head>
       <AuthProvider session={pageProps.session}>
         <Providers>
