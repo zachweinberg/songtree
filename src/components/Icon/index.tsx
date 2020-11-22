@@ -3,7 +3,7 @@ import React from 'react'
 interface Props {
   name: string
   size: string
-  style: any
+  style?: any
 }
 
 const Glyph = ({ size, name, style }: Props) => {
