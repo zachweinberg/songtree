@@ -1,8 +1,7 @@
 import { providers, useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
-import { AuthProviders } from '~/components/Auth'
-import LoginButtons from '~/components/Auth/LoginButtons'
-import Page, { Heading, Subheading } from '~/components/Page'
+import { AuthForm, AuthProviders } from '~/components/AuthForm'
+import Page, { Heading } from '~/components/Page'
 
 interface Props {
   providers: AuthProviders
@@ -19,8 +18,7 @@ const Register = ({ providers }: Props) => {
   return (
     <Page>
       <Heading>Sign up for SONGTREE</Heading>
-      <Subheading>We hope you like music! 🎸</Subheading>
-      <LoginButtons providers={providers} signup />
+      <AuthForm signup providers={providers} />
     </Page>
   )
 }

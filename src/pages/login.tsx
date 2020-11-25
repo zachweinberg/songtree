@@ -1,7 +1,6 @@
 import { providers, useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
-import { AuthProviders } from '~/components/Auth'
-import LoginButtons from '~/components/Auth/LoginButtons'
+import { AuthForm, AuthProviders } from '~/components/AuthForm'
 import Page, { Heading } from '~/components/Page'
 
 interface Props {
@@ -18,8 +17,8 @@ const Login = ({ providers }: Props) => {
 
   return (
     <Page>
-      <Heading>Log in to SONGTREE</Heading>
-      <LoginButtons providers={providers} />
+      <Heading>Sign in to SONGTREE</Heading>
+      <AuthForm providers={providers} />
     </Page>
   )
 }
