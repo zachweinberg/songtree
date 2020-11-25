@@ -5,9 +5,11 @@ interface Props {
   value: string
   onChange: Function
   placeholder: string
-  type: 'text' | 'search'
+  type: 'text' | 'search' | 'password'
   disabled?: boolean
   textarea?: boolean
+  centerText?: boolean
+  style?: any
 }
 
 const Input = ({
@@ -17,6 +19,8 @@ const Input = ({
   type,
   disabled,
   textarea,
+  centerText,
+  style,
 }: Props) =>
   textarea ? (
     <StyledTextArea
@@ -27,6 +31,8 @@ const Input = ({
       }}
       disabled={disabled}
       placeholder={placeholder}
+      centerText={centerText}
+      style={style}
     />
   ) : (
     <StyledInput
@@ -37,6 +43,8 @@ const Input = ({
       }}
       disabled={disabled}
       placeholder={placeholder}
+      centerText={centerText}
+      style={style}
     />
   )
 

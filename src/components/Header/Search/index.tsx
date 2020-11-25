@@ -45,6 +45,7 @@ const Search = () => {
   return (
     <Container>
       <Input
+        centerText
         onChange={onChange}
         value={searchTerm}
         aria-label="search"

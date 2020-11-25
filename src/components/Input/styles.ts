@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import theme from '~/components/Theme'
 
 const base = css`
+  box-sizing: border-box !important;
   border-radius: ${theme.borderRadius} !important;
   background: ${theme.colors.black[1]};
   color: ${theme.colors.gray[2]};
@@ -30,7 +31,7 @@ const base = css`
 `
 export const Input = styled.input`
   ${base}
-  text-align: center;
+  text-align: ${(props) => (props.centerText ? 'center' : 'auto')};
 `
 
 export const StyledTextArea = styled.textarea`

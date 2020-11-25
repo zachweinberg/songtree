@@ -3,7 +3,7 @@ import { normalize } from 'styled-normalize'
 import theme from './index'
 
 const GlobalStyles = createGlobalStyle`
-  ${normalize}
+  /* ${normalize} */
 
   html {
     background: ${theme.colors.black[1]};

@@ -13,9 +13,25 @@ const options: InitOptions = {
       clientId: process.env.SPOTIFY_CLIENT_ID,
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
     }),
-    Providers.Google({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    Providers.Credentials({
+      name: 'Email',
+      credentials: {
+        email: { label: 'Email', type: 'text' },
+        password: { label: 'Password', type: 'password' },
+      },
+      authorize: async (credentials) => {
+        console.log(JSON.stringify(credentials))
+        const user = (credentials) => {
+          // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
+          return null
+        }
+        if (user) {
+          // Any user object returned here will be saved in the JSON Web Token
+          return Promise.resolve(user)
+        } else {
+          return Promise.resolve(null)
+        }
+      },
     }),
   ],
   session: { maxAge: 30 * 24 * 60 * 60 }, // 30 days

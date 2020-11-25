@@ -1,9 +1,9 @@
 import { signIn } from 'next-auth/client'
+import Router from 'next/router'
 import Button from '~/components/Buttons'
 import Icon from '~/components/Icon'
 import { AuthProviders } from './index'
 import { ButtonContainer, Container } from './styles'
-
 interface Props {
   providers: AuthProviders
 }
@@ -23,7 +23,11 @@ const LoginButtons = ({ providers }: Props) => {
             block
             type="primary"
             size="md"
-            onClick={() => signIn(provider.id)}
+            onClick={() =>
+              provider.id === 'credentials'
+                ? Router.push('/login/email')
+                : signIn(provider.id)
+            }
             bg={iconColors[provider.id]}
           >
             <Icon
