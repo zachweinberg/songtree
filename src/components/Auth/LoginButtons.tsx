@@ -6,6 +6,7 @@ import { AuthProviders } from './index'
 import { ButtonContainer, Container } from './styles'
 interface Props {
   providers: AuthProviders
+  signup?: boolean
 }
 
 const iconColors = {
@@ -14,7 +15,7 @@ const iconColors = {
   spotify: '#1DB954',
 }
 
-const LoginButtons = ({ providers }: Props) => {
+const LoginButtons = ({ providers, signup }: Props) => {
   return (
     <Container>
       {Object.values(providers).map((provider) => (
@@ -35,7 +36,7 @@ const LoginButtons = ({ providers }: Props) => {
               size="20"
               style={{ marginRight: '8px', fill: '#fff' }}
             />
-            Sign in with {provider.name}
+            Sign {signup ? 'up' : 'in'} with {provider.name}
           </Button>
         </ButtonContainer>
       ))}

@@ -13,3 +13,10 @@ interface Comment {
   text: string
   createdAt: Date
 }
+
+export interface User {
+  username: string
+  id: string
+  email?: string
+  authType: 'github' | 'spotify' | 'email'
+}

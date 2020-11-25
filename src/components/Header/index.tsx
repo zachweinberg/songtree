@@ -1,4 +1,4 @@
-import { signout, useSession } from 'next-auth/client'
+import { signOut, useSession } from 'next-auth/client'
 import Link from 'next/link'
 import Router from 'next/router'
 import Button from '~/components/Buttons'
@@ -25,12 +25,23 @@ const Header = () => {
             >
               Login
             </Button>
-            <Button style={{ marginLeft: '10px' }} type="primary" size="md">
+            <Button
+              onClick={() => Router.push('/register')}
+              style={{ marginLeft: '10px' }}
+              type="primary"
+              size="md"
+            >
               Sign up
             </Button>
           </>
         ) : (
-          <Button type="secondary" size="md" onClick={() => signout()}>
+          <Button
+            type="secondary"
+            size="md"
+            onClick={() =>
+              signOut({ callbackUrl: `${process.env.NEXTAUTH_URL}/login` })
+            }
+          >
             Sign Out
           </Button>
         )}
