@@ -1,4 +1,5 @@
-import { providers, useSession } from 'next-auth/client'
+import { GetServerSidePropsContext } from 'next'
+import { getSession, providers, useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
 import { AuthForm, AuthProviders } from '~/components/AuthForm'
 import Page, { Heading } from '~/components/Page'
@@ -23,9 +24,16 @@ const Login = ({ providers }: Props) => {
   )
 }
 
-Login.getInitialProps = async () => {
+export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  const session = await getSession({ req: ctx.req })
+
+  if (session) {
+    ctx.res.writeHead(302, { Location: '/account' })
+    ctx.res.end()
+  }
+
   return {
-    providers: await providers(),
+    props: { providers: await providers() },
   }
 }
 
