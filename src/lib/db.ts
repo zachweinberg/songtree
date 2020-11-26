@@ -39,6 +39,7 @@ const normalizeTimestamps = <T>(value: T): T =>
     if (value[key] instanceof firestore.Timestamp) {
       finalValue = value[key].toDate()
     } else if (
+      value[key] &&
       typeof value[key] === 'object' &&
       value[key]._nanoseconds &&
       value[key]._seconds

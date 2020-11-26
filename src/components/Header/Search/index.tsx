@@ -66,7 +66,7 @@ const Search = () => {
       {results && results.length > 0 && (
         <SearchResults
           onOutsideClick={clearSearch}
-          onClick={() => setResults([])}
+          onClick={clearSearch}
           songs={results}
         />
       )}

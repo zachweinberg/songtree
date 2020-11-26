@@ -1,4 +1,5 @@
 import React from 'react'
+import PlayButton from '~/components/PlayButton'
 import { Song } from '~/types'
 import CommentBox from './CommentBox'
 import SongReactions from './SongReactions'
@@ -27,6 +28,7 @@ const SongView = ({ song }: Props) => {
         <Description>
           {song.album} ({song.releaseYear})
         </Description>
+        {song.previewUrl && <PlayButton src={song.previewUrl} />}
         <CommentBox />
       </SongInfo>
     </Grid>

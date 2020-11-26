@@ -30,6 +30,7 @@ interface SpotifyTrack {
   artists: SpotifyArtist[]
   album: SpotifyAlbum
   url?: string
+  preview_url?: string
 }
 interface SpotifySearchResults {
   id: string
@@ -104,6 +105,7 @@ const formatSong = (spotifyTrack: SpotifyTrack, isSearch = false): Song => {
     artist: spotifyTrack.artists[0].name,
     album: spotifyTrack.album.name,
     albumArtUrl,
+    previewUrl: spotifyTrack.preview_url,
   }
 }
 
@@ -123,6 +125,7 @@ export const getSpotifySongData = async (songID: string): Promise<Song> => {
       Authorization: `Bearer ${token.access_token}`,
     },
   })
+
   return formatSong(data)
 }
 

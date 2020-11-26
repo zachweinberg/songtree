@@ -6,6 +6,7 @@ export interface Song {
   album: string
   albumArtUrl: string
   comments?: Comment[]
+  previewUrl?: string | null
   createdAt?: Date | string
 }
 
