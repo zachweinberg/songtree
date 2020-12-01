@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import theme from '~/components/Theme'
 
 const base = css`
+  font-family: inherit;
   box-sizing: border-box !important;
   border-radius: ${theme.borderRadius} !important;
   background: ${theme.colors.black[1]};
