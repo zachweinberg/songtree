@@ -24,10 +24,8 @@ const Home: NextPage = (props: Props) => {
   return (
     <Page title="Music Database">
       <SectionHeading>
-        <Heading>Welcome to SONGTREE</Heading>
-        <Subheading>
-          A database of songs with comments from people around the world
-        </Subheading>
+        <Heading>Welcome to SONGTREE!</Heading>
+        <Subheading>A database of songs, backed by Spotify</Subheading>
       </SectionHeading>
       <SongGrid songs={props.recentSongs} />
     </Page>

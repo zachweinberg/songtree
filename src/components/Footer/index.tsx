@@ -10,7 +10,7 @@ const Footer = () => {
         rel="noreferrer"
         style={{ textDecoration: 'inherit', color: 'inherit' }}
       >
-        <Icon name="github" size="37px" />
+        <Icon name="github" size="37px" style={{ fill: '#ccc' }} />
         <p style={{ margin: 0, color: '#a9abb6', fontSize: '15px' }}>
           This project is open source
         </p>
