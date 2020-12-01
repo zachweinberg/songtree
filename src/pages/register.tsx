@@ -17,7 +17,7 @@ const Register = ({ providers }: Props) => {
   }
 
   return (
-    <Page>
+    <Page title="Sign up">
       <Heading>Sign up for SONGTREE</Heading>
       <AuthForm signup providers={providers} />
     </Page>

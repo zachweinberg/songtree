@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import React from 'react'
 import Footer from '~/components/Footer'
 import Header from '~/components/Header'
@@ -13,14 +14,20 @@ export { SectionHeading, Heading, Subheading }
 
 interface Props {
   children: React.ReactNode
+  title: string
 }
 
 export default function Page(props: Props) {
   return (
-    <Container>
-      <Header />
-      <InnerContainer>{props.children}</InnerContainer>
-      <Footer />
-    </Container>
+    <>
+      <Head>
+        <title>{props.title} | SONGTREE</title>
+      </Head>
+      <Container>
+        <Header />
+        <InnerContainer>{props.children}</InnerContainer>
+        <Footer />
+      </Container>
+    </>
   )
 }

@@ -22,7 +22,7 @@ interface Props {
 
 const Home: NextPage = (props: Props) => {
   return (
-    <Page>
+    <Page title="Music Database">
       <SectionHeading>
         <Heading>Welcome to SONGTREE</Heading>
         <Subheading>

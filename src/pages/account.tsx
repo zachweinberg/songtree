@@ -3,7 +3,7 @@ import { getSession } from 'next-auth/client'
 import Page from '~/components/Page'
 
 const Account: NextPage = () => {
-  return <Page>Hi</Page>
+  return <Page title="Your Account">Hi</Page>
 }
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
