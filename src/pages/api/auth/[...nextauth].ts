@@ -26,7 +26,6 @@ const options: InitOptions = {
           credentials.email,
           credentials.password
         )
-
         if (!foundUser) {
           return Promise.reject('login?state=InvalidLogin')
         } else {
@@ -45,7 +44,7 @@ const options: InitOptions = {
     jwt: async (token, user: any, _account, profile) => {
       let response = token
 
-      if (user && profile.id) {
+      if (user && user.authType !== 'email') {
         const oauthType = profile.login
           ? 'github'
           : profile.display_name
@@ -85,9 +84,5 @@ const options: InitOptions = {
   jwt: { secret: process.env.JWT_SECRET },
 }
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.url.includes('/error')) {
-    return res.redirect('/login')
-  }
-  return NextAuth(req, res, options)
-}
+export default (req: NextApiRequest, res: NextApiResponse) =>
+  NextAuth(req, res, options)

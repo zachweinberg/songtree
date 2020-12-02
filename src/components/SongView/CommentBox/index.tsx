@@ -11,7 +11,7 @@ const CommentBox = () => {
       <Title>Leave a comment</Title>
       <Input
         textarea
-        placeholder="Commenting as Zach"
+        placeholder="Commenting doesn't work yet :D"
         type="text"
         onChange={(e) => setComment(e.target.value)}
         value={comment}
