@@ -17,7 +17,7 @@ export const createEmailUser = async (
 
   const userData: Partial<User> = {
     email,
-    username: null,
+    username: `user`,
     authType: 'email',
     createdAt: new Date(),
   }

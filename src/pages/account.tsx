@@ -7,7 +7,7 @@ const Account: NextPage = () => {
 
   return (
     <Page title="Your Account" hideFooter>
-      {JSON.stringify(session)}
+      {session ? <p>{session.user.username}</p> : null}
     </Page>
   )
 }

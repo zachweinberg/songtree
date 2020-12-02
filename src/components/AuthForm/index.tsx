@@ -37,6 +37,7 @@ const iconColors = {
 const AuthForm = ({ providers, signup }: Props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [username, setUsername] = useState('')
   const [notification, setNotification] = useState('')
   const router = useRouter()
 
