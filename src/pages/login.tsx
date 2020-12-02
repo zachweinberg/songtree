@@ -17,7 +17,7 @@ const Login = ({ providers }: Props) => {
   }
 
   return (
-    <Page title="Login">
+    <Page title="Login" hideFooter>
       <Heading>Sign in to SONGTREE</Heading>
       <AuthForm providers={providers} />
     </Page>

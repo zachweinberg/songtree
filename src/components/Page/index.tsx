@@ -15,6 +15,7 @@ export { SectionHeading, Heading, Subheading }
 interface Props {
   children: React.ReactNode
   title: string
+  hideFooter?: boolean
 }
 
 export default function Page(props: Props) {
@@ -26,7 +27,7 @@ export default function Page(props: Props) {
       <Container>
         <Header />
         <InnerContainer>{props.children}</InnerContainer>
-        <Footer />
+        {hideFooter ? null : <Footer />}
       </Container>
     </>
   )
