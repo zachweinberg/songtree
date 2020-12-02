@@ -1,21 +1,47 @@
-import { User } from '../types'
+import bcrypt from 'bcryptjs'
+import { User } from '~/types'
 import { createDocument, findDocuments } from './db'
 
-export const createUser = async (
+export const createEmailUser = async (
   email: string,
   password: string
 ): Promise<void> => {
-  const userData = { email, password, createdAt: new Date() }
+  const users = await findDocuments<User>('users', [
+    { property: 'email', condition: '==', value: email },
+    { property: 'authType', condition: '==', value: 'email' },
+  ])
+
+  if (users.length > 0) {
+    throw new Error('User with that email exists')
+  }
+
+  const userData: Partial<User> = {
+    email,
+    username: null,
+    authType: 'email',
+    createdAt: new Date(),
+  }
+
+  const salt = bcrypt.genSaltSync(10)
+  const hash = bcrypt.hashSync(password, salt)
+  userData.password = hash
   await createDocument('users', userData)
 }
 
-export const getUserByEmail = async (email): Promise<User> => {
-  const users = await findDocuments<User>(
-    'users', // We use this collection so we have control over what is shown on the homepage
-    [{ property: 'email', condition: '==', value: email }]
-  )
+export const getUserByEmail = async (email, password): Promise<User> => {
+  const users = await findDocuments<User>('users', [
+    { property: 'email', condition: '==', value: email },
+    { property: 'authType', condition: '==', value: 'email' },
+  ])
+
   if (users.length > 0) {
-    return users[0]
+    const hashedPwd = users[0].password
+    const passes = bcrypt.compareSync(password, hashedPwd)
+
+    if (passes) {
+      return users[0]
+    }
   }
+
   return null
 }

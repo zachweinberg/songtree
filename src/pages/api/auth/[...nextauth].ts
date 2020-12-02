@@ -21,13 +21,20 @@ const options: InitOptions = {
         password: { label: 'Password', type: 'password' },
       },
       authorize: async (credentials) => {
-        // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
-        const foundUser = await getUserByEmail(credentials.email)
+        const foundUser = await getUserByEmail(
+          credentials.email,
+          credentials.password
+        )
 
         if (!foundUser) {
           return Promise.resolve(null)
         } else {
-          return Promise.resolve(1)
+          return Promise.resolve({
+            id: foundUser.id,
+            authType: foundUser.authType,
+            username: foundUser.authType,
+            createdAt: foundUser.createdAt,
+          })
         }
       },
     }),

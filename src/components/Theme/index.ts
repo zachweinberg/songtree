@@ -21,6 +21,9 @@ const theme = {
     purple: {
       1: '#7F5AF0',
     },
+    red: {
+      1: '#d62a2a',
+    },
   },
   breakpoints: {
     sm: '@media (min-width: 576px)',

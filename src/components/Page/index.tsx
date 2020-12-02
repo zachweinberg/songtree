@@ -27,7 +27,7 @@ export default function Page(props: Props) {
       <Container>
         <Header />
         <InnerContainer>{props.children}</InnerContainer>
-        {hideFooter ? null : <Footer />}
+        {props.hideFooter ? null : <Footer />}
       </Container>
     </>
   )

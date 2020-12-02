@@ -1,9 +1,11 @@
 import { signIn } from 'next-auth/client'
+import Router from 'next/router'
 import { useState } from 'react'
 import Button from '~/components/Buttons'
 import Icon from '~/components/Icon'
 import Input from '~/components/Input'
-import { ButtonContainer, Container, EmailForm } from './styles'
+import { register } from '~/lib/api'
+import { ButtonContainer, Container, EmailForm, Error } from './styles'
 
 export type AuthProviders = {
   [provider: string]: {
@@ -29,9 +31,18 @@ const iconColors = {
 const AuthForm = ({ providers, signup }: Props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
-  const submitForm = () => {
-    signIn('credentials', { email, password })
+  const submitForm = async (e) => {
+    e.preventDefault()
+
+    if (signup) {
+      register(email, password)
+        .then(() => Router.push('/login'))
+        .catch((err) => setError(err.response.data.error))
+    } else {
+      signIn('credentials', { email, password })
+    }
   }
 
   return (
@@ -56,13 +67,15 @@ const AuthForm = ({ providers, signup }: Props) => {
             </Button>
           </ButtonContainer>
         ))}
-      <EmailForm>
+      <EmailForm onSubmit={submitForm}>
+        {error.length > 0 && <Error>{error}</Error>}
         <Input
-          type="text"
+          type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           style={{ marginBottom: '13px' }}
+          required
         />
         <Input
           type="password"
@@ -70,8 +83,9 @@ const AuthForm = ({ providers, signup }: Props) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           style={{ marginBottom: '13px' }}
+          required
         />
-        <Button block size="md" type="primary" onClick={submitForm}>
+        <Button block size="md" type="primary">
           {signup ? 'Sign up with email' : 'Sign in with email'}
         </Button>
       </EmailForm>

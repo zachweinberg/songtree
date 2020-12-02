@@ -19,5 +19,7 @@ export interface User {
   username: string
   id: string
   email?: string
+  password?: string
   authType: 'github' | 'spotify' | 'email'
+  createdAt: Date
 }

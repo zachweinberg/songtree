@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
+    "bcryptjs": "^2.4.3",
+    "email-validator": "^2.0.4",
     "firebase-admin": "^9.3.0",
     "lodash": "^4.17.20",
     "next": "^9.5.5",

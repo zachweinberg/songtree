@@ -14,8 +14,15 @@ export const ButtonContainer = styled.div`
   margin-bottom: 12px;
 `
 
-export const EmailForm = styled.div`
+export const EmailForm = styled.form`
   border-top: 1px solid ${theme.colors.gray[4]};
   padding-top: 20px;
   margin-top: 20px;
+`
+
+export const Error = styled.p`
+  margin: 0;
+  color: ${theme.colors.red[1]};
+  font-size: 14px;
+  text-align: center;
 `
