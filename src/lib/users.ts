@@ -12,7 +12,7 @@ export const createEmailUser = async (
   ])
 
   if (users.length > 0) {
-    throw new Error('User with that email exists')
+    throw new Error('A user with that email already exists.')
   }
 
   const userData: Partial<User> = {

@@ -8,6 +8,7 @@ const theme = {
       2: '#a9abb6',
       3: '#94A1B2',
       4: '#393939',
+      5: '#0a0a0a',
     },
     white: {
       1: '#FFFFFE',
@@ -23,6 +24,7 @@ const theme = {
     },
     red: {
       1: '#d62a2a',
+      2: '#ff9797',
     },
   },
   breakpoints: {

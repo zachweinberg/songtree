@@ -27,7 +27,7 @@ const options: InitOptions = {
         )
 
         if (!foundUser) {
-          return Promise.resolve(null)
+          return Promise.reject('login?state=InvalidLogin')
         } else {
           return Promise.resolve({
             id: foundUser.id,

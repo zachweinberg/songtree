@@ -1,3 +1,4 @@
+import { useSession } from 'next-auth/client'
 import React from 'react'
 import PlayButton from '~/components/PlayButton'
 import { Song } from '~/types'
@@ -11,11 +12,14 @@ import {
   SongInfo,
   SongTitle,
 } from './styles'
+
 interface Props {
   song: Song
 }
 
 const SongView = ({ song }: Props) => {
+  const [session] = useSession()
+
   return (
     <Grid>
       <Sidebar>
@@ -29,7 +33,7 @@ const SongView = ({ song }: Props) => {
           {song.album} ({song.releaseYear})
         </Description>
         {song.previewUrl && <PlayButton src={song.previewUrl} />}
-        <CommentBox />
+        {session ? <CommentBox /> : <p>Login to leave comments!</p>}
       </SongInfo>
     </Grid>
   )

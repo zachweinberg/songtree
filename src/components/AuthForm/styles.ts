@@ -3,7 +3,7 @@ import theme from '~/components/Theme'
 
 export const Container = styled.div`
   margin-top: 20px;
-  max-width: 380px;
+  max-width: 420px;
   width: 100%;
   background-color: ${theme.colors.gray[1]};
   padding: 40px 25px;
@@ -15,14 +15,18 @@ export const ButtonContainer = styled.div`
 `
 
 export const EmailForm = styled.form`
-  border-top: 1px solid ${theme.colors.gray[4]};
-  padding-top: 20px;
   margin-top: 20px;
 `
 
-export const Error = styled.p`
-  margin: 0;
-  color: ${theme.colors.red[1]};
-  font-size: 14px;
-  text-align: center;
+export const ProvidersBox = styled.div`
+  padding-bottom: 10px;
+  border-bottom: 1px solid ${theme.colors.gray[4]};
+`
+
+export const Notification = styled.p`
+  border-radius: ${theme.borderRadius};
+  background-color: ${theme.colors.gray[5]};
+  color: ${theme.colors.white[1]};
+  font-size: 15px;
+  padding: 11px;
 `

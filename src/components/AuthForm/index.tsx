@@ -1,11 +1,17 @@
 import { signIn } from 'next-auth/client'
-import Router from 'next/router'
-import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 import Button from '~/components/Buttons'
 import Icon from '~/components/Icon'
 import Input from '~/components/Input'
 import { register } from '~/lib/api'
-import { ButtonContainer, Container, EmailForm, Error } from './styles'
+import {
+  ButtonContainer,
+  Container,
+  EmailForm,
+  Notification,
+  ProvidersBox,
+} from './styles'
 
 export type AuthProviders = {
   [provider: string]: {
@@ -31,44 +37,64 @@ const iconColors = {
 const AuthForm = ({ providers, signup }: Props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
+  const [notification, setNotification] = useState('')
+  const router = useRouter()
 
   const submitForm = async (e) => {
     e.preventDefault()
 
     if (signup) {
       register(email, password)
-        .then(() => Router.push('/login'))
-        .catch((err) => setError(err.response.data.error))
+        .then(() => router.push('/login?state=SignupSuccess'))
+        .catch((err) => setNotification(err.response.data.error))
     } else {
       signIn('credentials', { email, password })
     }
   }
 
+  useEffect(() => {
+    if (router.query?.state) {
+      //TODO: enum these
+      switch (router.query.state) {
+        case 'InvalidLogin':
+          setNotification('Woops! That is not a valid login.')
+          break
+        case 'SignupSuccess':
+          setNotification(
+            'Your account has been created. You can login below now!'
+          )
+          break
+      }
+    }
+  }, [router.query])
+
   return (
     <Container>
-      {Object.values(providers)
-        .filter((provider) => provider.id !== 'credentials')
-        .map((provider) => (
-          <ButtonContainer key={provider.name}>
-            <Button
-              block
-              type="primary"
-              size="md"
-              onClick={() => signIn(provider.id)}
-              bg={iconColors[provider.id]}
-            >
-              <Icon
-                name={provider.id}
-                size="20"
-                style={{ marginRight: '8px', fill: '#fff' }}
-              />
-              Sign {signup ? 'up' : 'in'} with {provider.name}
-            </Button>
-          </ButtonContainer>
-        ))}
+      <ProvidersBox>
+        {Object.values(providers)
+          .filter((provider) => provider.id !== 'credentials')
+          .map((provider) => (
+            <ButtonContainer key={provider.name}>
+              <Button
+                block
+                type="primary"
+                size="md"
+                onClick={() => signIn(provider.id)}
+                bg={iconColors[provider.id]}
+              >
+                <Icon
+                  name={provider.id}
+                  size="20"
+                  style={{ marginRight: '8px', fill: '#fff' }}
+                />
+                {signup ? 'Signup' : 'Login'} with {provider.name}
+              </Button>
+            </ButtonContainer>
+          ))}
+      </ProvidersBox>
       <EmailForm onSubmit={submitForm}>
-        {error.length > 0 && <Error>{error}</Error>}
+        {notification.length > 0 && <Notification>{notification}</Notification>}
+
         <Input
           type="email"
           placeholder="Email"
@@ -86,7 +112,7 @@ const AuthForm = ({ providers, signup }: Props) => {
           required
         />
         <Button block size="md" type="primary">
-          {signup ? 'Sign up with email' : 'Sign in with email'}
+          {signup ? 'Sign up with email' : 'Login with email'}
         </Button>
       </EmailForm>
     </Container>

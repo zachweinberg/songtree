@@ -12,13 +12,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     // Validation
     if (!email || !password) {
-      return res.status(400).json({ error: 'Invalid credentials' })
+      return res.status(400).json({ error: 'Invalid credentials.' })
     }
     if (password.length < 7) {
-      return res.status(400).json({ error: 'Please use a longer password' })
+      return res.status(400).json({ error: 'Please use a longer password.' })
     }
     if (!validator.validate(email)) {
-      return res.status(400).json({ error: 'Please use a valid email address' })
+      return res
+        .status(400)
+        .json({ error: 'Please use a valid email address.' })
     }
 
     await createEmailUser(email, password)
@@ -29,7 +31,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     if (err instanceof Error) {
       res.status(400).json({ error: err.message })
     } else {
-      res.status(400).json({ error: 'Something went wrong' })
+      res.status(400).json({ error: 'Something went wrong.' })
     }
   }
 }
