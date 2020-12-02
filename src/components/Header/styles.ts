@@ -38,15 +38,20 @@ export const AuthContainer = styled.div`
   justify-content: flex-end;
 `
 
+export const HomeNav = styled.div`
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.65;
+    transition: 0.2s opacity ease-in-out;
+  }
+`
+
 export const Logo = styled.a`
   font-weight: 700;
   font-size: 23px;
   cursor: pointer;
   ${theme.breakpoints.md} {
     font-size: 26px;
-  }
-  &:hover {
-    opacity: 0.65;
-    transition: 0.2s opacity ease-in-out;
   }
 `
