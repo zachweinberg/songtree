@@ -21,6 +21,18 @@ export const EmailForm = styled.form`
 export const ProvidersBox = styled.div`
   padding-bottom: 10px;
   border-bottom: 1px solid ${theme.colors.gray[4]};
+  position: relative;
+`
+
+export const OrDivider = styled.span`
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: ${theme.colors.gray[1]};
+  color: ${theme.colors.text[1]};
+  font-size: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
 `
 
 export const Notification = styled.p`

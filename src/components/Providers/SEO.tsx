@@ -4,7 +4,7 @@ import Head from 'next/head'
 // TODO: Finish SEO
 const SeoDetails = {
   title: 'SONGTREE',
-  description: 'A database of thoughts related to specific songs',
+  description: 'A database of songs',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -18,6 +18,7 @@ const SeoDetails = {
     ],
   },
 }
+
 const SEO = () => {
   return (
     <>
@@ -25,7 +26,6 @@ const SEO = () => {
       <Head>
         <meta name="theme-color" content={'#fefefe'} />
         <link rel="apple-touch-icon" href="/static/meta/apple-touch-icon.png" />
-        <link rel="manifest" href="/static/meta/manifest.json" />
       </Head>
     </>
   )

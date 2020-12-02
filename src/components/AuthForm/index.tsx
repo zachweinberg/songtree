@@ -10,6 +10,7 @@ import {
   Container,
   EmailForm,
   Notification,
+  OrDivider,
   ProvidersBox,
 } from './styles'
 
@@ -88,11 +89,13 @@ const AuthForm = ({ providers, signup }: Props) => {
                   size="20"
                   style={{ marginRight: '8px', fill: '#fff' }}
                 />
-                {signup ? 'Signup' : 'Login'} with {provider.name}
+                {signup ? 'Sign up' : 'Login'} with {provider.name}
               </Button>
             </ButtonContainer>
           ))}
+        <OrDivider>Or {signup ? 'sign up' : 'login'} with email:</OrDivider>
       </ProvidersBox>
+
       <EmailForm onSubmit={submitForm}>
         {notification.length > 0 && <Notification>{notification}</Notification>}
 
