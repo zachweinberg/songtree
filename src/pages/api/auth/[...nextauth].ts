@@ -1,3 +1,4 @@
+import { NextApiRequest, NextApiResponse } from 'next'
 import NextAuth, { InitOptions } from 'next-auth'
 import Providers from 'next-auth/providers'
 import { createOAuthUser, getUserByEmail, getUserByID } from '~/lib/users'
@@ -84,4 +85,9 @@ const options: InitOptions = {
   jwt: { secret: process.env.JWT_SECRET },
 }
 
-export default (req, res) => NextAuth(req, res, options)
+export default (req: NextApiRequest, res: NextApiResponse) => {
+  if (req.url.includes('/error')) {
+    return res.redirect('/login')
+  }
+  return NextAuth(req, res, options)
+}
