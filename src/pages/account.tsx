@@ -1,11 +1,13 @@
 import { GetServerSidePropsContext, NextPage } from 'next'
-import { getSession } from 'next-auth/client'
+import { getSession, useSession } from 'next-auth/client'
 import Page from '~/components/Page'
 
 const Account: NextPage = () => {
+  const [session] = useSession()
+
   return (
     <Page title="Your Account" hideFooter>
-      Hi
+      {JSON.stringify(session)}
     </Page>
   )
 }

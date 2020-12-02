@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs'
 import { User } from '~/types'
-import { createDocument, findDocuments } from './db'
+import { createDocument, findDocuments, getDocument } from './db'
 
 export const createEmailUser = async (
   email: string,
@@ -28,6 +28,29 @@ export const createEmailUser = async (
   await createDocument('users', userData)
 }
 
+export const createOAuthUser = async (
+  oauthID,
+  authType: 'github' | 'spotify' | null
+): Promise<void> => {
+  if (!authType) {
+    throw new Error('Invalid provider.')
+  }
+  const user = await getDocument<User>('users', String(oauthID))
+
+  if (!user) {
+    await createDocument(
+      'users',
+      {
+        email: null,
+        username: null,
+        authType,
+        createdAt: new Date(),
+      },
+      String(oauthID)
+    )
+  }
+}
+
 export const getUserByEmail = async (email, password): Promise<User> => {
   const users = await findDocuments<User>('users', [
     { property: 'email', condition: '==', value: email },
@@ -44,4 +67,9 @@ export const getUserByEmail = async (email, password): Promise<User> => {
   }
 
   return null
+}
+
+export const getUserByID = async (userID) => {
+  const user = await getDocument<User>('users', userID)
+  return user
 }

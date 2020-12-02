@@ -1,6 +1,6 @@
 import NextAuth, { InitOptions } from 'next-auth'
 import Providers from 'next-auth/providers'
-import { getUserByEmail } from '~/lib/users'
+import { createOAuthUser, getUserByEmail, getUserByID } from '~/lib/users'
 
 const options: InitOptions = {
   pages: { signIn: '/login' },
@@ -40,28 +40,44 @@ const options: InitOptions = {
     }),
   ],
   callbacks: {
-    async session(session, user) {
-      console.log('SESSION')
-      console.log(session)
-      console.log(user)
-      // const sessionUser: SessionUser = {
-      //   ...session.user,
-      //   id: user.id,
-      //   username: user.username,
-      //   role: user.role,
-      // }
+    // Called whenever a jwt is created (at sign in) or updated (whenever a session is accesed in the client).
+    jwt: async (token, user: any, _account, profile) => {
+      let response = token
 
+      if (user && profile.id) {
+        const oauthType = profile.login
+          ? 'github'
+          : profile.display_name
+          ? 'spotify'
+          : null
+
+        await createOAuthUser(profile.id, oauthType)
+        user.id = String(profile.id)
+      }
+
+      if (user?.id) {
+        const dbUser = await getUserByID(user.id)
+
+        response = {
+          ...token,
+          id: user?.id,
+          username: dbUser.username,
+        }
+      }
+
+      return Promise.resolve(response)
+    },
+    // Called whenever a session is checked
+    session: async (session, user: any) => {
+      const sessionUser = {
+        ...session.user,
+        id: user.id,
+        username: user.username,
+      }
       return Promise.resolve({
         ...session,
+        user: sessionUser,
       })
-    },
-    async jwt(token, user, _account, profile) {
-      console.log('JWT')
-      console.log(user)
-      console.log(_account)
-      console.log(profile)
-
-      return Promise.resolve({ ...token })
     },
   },
   session: { maxAge: 30 * 24 * 60 * 60 }, // 30 days
