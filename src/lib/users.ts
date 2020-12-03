@@ -4,7 +4,8 @@ import { createDocument, findDocuments, getDocument } from './db'
 
 export const createEmailUser = async (
   email: string,
-  password: string
+  password: string,
+  username: string
 ): Promise<void> => {
   const users = await findDocuments<User>('users', [
     { property: 'email', condition: '==', value: email },
@@ -17,7 +18,7 @@ export const createEmailUser = async (
 
   const userData: Partial<User> = {
     email,
-    username: `user`,
+    username,
     authType: 'email',
     createdAt: new Date(),
   }
@@ -25,28 +26,31 @@ export const createEmailUser = async (
   const salt = bcrypt.genSaltSync(10)
   const hash = bcrypt.hashSync(password, salt)
   userData.password = hash
+
   await createDocument('users', userData)
 }
 
 export const createOAuthUser = async (
-  oauthID,
-  authType: 'github' | 'spotify' | null
+  oauthID: string,
+  authType: 'github' | 'spotify',
+  username: string
 ): Promise<void> => {
   if (!authType) {
-    throw new Error('Invalid provider.')
+    throw new Error('Need a provider.')
   }
-  const user = await getDocument<User>('users', String(oauthID))
+
+  const user = await getDocument<User>('users', oauthID)
 
   if (!user) {
     await createDocument(
       'users',
       {
         email: null,
-        username: null,
+        username,
         authType,
         createdAt: new Date(),
       },
-      String(oauthID)
+      oauthID
     )
   }
 }

@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import NextAuth, { InitOptions } from 'next-auth'
 import Providers from 'next-auth/providers'
 import { createOAuthUser, getUserByEmail, getUserByID } from '~/lib/users'
+import { getRandomUsername } from '~/lib/utils'
 
 const options: InitOptions = {
   pages: { signIn: '/login' },
@@ -32,7 +33,7 @@ const options: InitOptions = {
           return Promise.resolve({
             id: foundUser.id,
             authType: foundUser.authType,
-            username: foundUser.authType,
+            username: foundUser.username,
             createdAt: foundUser.createdAt,
           })
         }
@@ -40,34 +41,52 @@ const options: InitOptions = {
     }),
   ],
   callbacks: {
-    // Called whenever a jwt is created (at sign in) or updated (whenever a session is accesed in the client).
+    /**
+     * @param  {object}  token     Decrypted JSON Web Token
+     * @param  {object}  user      User object      (only available on sign in)
+     * @param  {object}  account   Provider account (only available on sign in)
+     * @param  {object}  profile   Provider profile (only available on sign in)
+     * @param  {boolean} isNewUser True if new user (only available on sign in)
+     * @return {object}            JSON Web Token that will be saved
+     */
     jwt: async (token, user: any, _account, profile) => {
-      let response = token
+      const isSignIn = !!user
 
-      if (user && user.authType !== 'email') {
-        const oauthType = profile.login
-          ? 'github'
-          : profile.display_name
-          ? 'spotify'
-          : null
+      if (isSignIn) {
+        const providerType: 'oauth' | 'credentials' = _account.type
 
-        await createOAuthUser(profile.id, oauthType)
-        user.id = String(profile.id)
+        if (providerType === 'oauth') {
+          const provider = _account.provider
+          const userID = profile.id.toString()
+          const username =
+            provider === 'github' ? profile.login : getRandomUsername()
+          await createOAuthUser(userID, provider, username)
+
+          token = {
+            ...token,
+            id: userID,
+            username,
+          }
+        }
       }
 
       if (user?.id) {
         const dbUser = await getUserByID(user.id)
 
-        response = {
+        token = {
           ...token,
-          id: user?.id,
+          id: dbUser.id,
           username: dbUser.username,
         }
       }
 
-      return Promise.resolve(response)
+      return Promise.resolve(token)
     },
-    // Called whenever a session is checked
+    /**
+     * @param  {object} session      Session object
+     * @param  {object} user         User object or JWT
+     * @return {object}              Session that will be returned to the client
+     */
     session: async (session, user: any) => {
       const sessionUser = {
         ...session.user,

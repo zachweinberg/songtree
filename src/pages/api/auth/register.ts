@@ -1,6 +1,11 @@
 import validator from 'email-validator'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { createEmailUser } from '~/lib/users'
+import { getRandomUsername } from '~/lib/utils'
+
+const validationError = (res, error) => {
+  return res.status(400).json({ error })
+}
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {
@@ -10,28 +15,28 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { email, password } = req.body
 
-    // Validation
     if (!email || !password) {
-      return res.status(400).json({ error: 'Invalid credentials.' })
-    }
-    if (password.length < 7) {
-      return res.status(400).json({ error: 'Please use a longer password.' })
-    }
-    if (!validator.validate(email)) {
-      return res
-        .status(400)
-        .json({ error: 'Please use a valid email address.' })
+      return validationError(res, 'Invalid credentials.')
     }
 
-    await createEmailUser(email, password)
+    if (password.length < 7) {
+      return validationError(res, 'Please use a longer password.')
+    }
+
+    if (!validator.validate(email)) {
+      return validationError(res, 'Please use a valid email address.')
+    }
+
+    const username = getRandomUsername()
+    await createEmailUser(email, password, username)
 
     res.status(200).json({ message: 'Success' })
   } catch (err) {
     console.error(err)
     if (err instanceof Error) {
-      res.status(400).json({ error: err.message })
+      res.status(500).json({ error: err.message })
     } else {
-      res.status(400).json({ error: 'Something went wrong.' })
+      res.status(500).json({ error: 'Something went wrong.' })
     }
   }
 }
