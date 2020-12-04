@@ -63,7 +63,7 @@ const SongView = ({ song }: Props) => {
             style={{ marginTop: '50px' }}
             onClick={() => Router.push('/register')}
           >
-            Sign up to leave comments!
+            Create an account to leave comments!
           </Button>
         )}
 

@@ -9,8 +9,12 @@ interface Props {
 const SongReactions = ({ song }: Props) => {
   return (
     <Container>
-      <ReactionButton>Like</ReactionButton>
-      <ReactionButton>Dislike</ReactionButton>
+      <ReactionButton onClick={() => alert('These dont do anything yet!')}>
+        Like
+      </ReactionButton>
+      <ReactionButton onClick={() => alert('These dont do anything yet!')}>
+        Dislike
+      </ReactionButton>
     </Container>
   )
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Button from '~/components/Buttons'
 import Input from '~/components/Input'
+import Loader from '~/components/Loader'
 import { submitComment } from '~/lib/api'
 import { Title } from './styles'
 
@@ -37,15 +38,19 @@ const CommentBox = ({ username, songID, onSuccess }: Props) => {
         onChange={(e) => setComment(e.target.value)}
         value={comment}
       />
-      <Button
-        onClick={onSubmitComment}
-        type="secondary"
-        size="md"
-        disabled={comment.length === 0 || submitting}
-        style={{ marginTop: '10px' }}
-      >
-        Comment
-      </Button>
+      {submitting ? (
+        <Loader />
+      ) : (
+        <Button
+          onClick={onSubmitComment}
+          type="secondary"
+          size="md"
+          disabled={comment.length === 0 || submitting}
+          style={{ marginTop: '10px' }}
+        >
+          Submit
+        </Button>
+      )}
     </>
   )
 }
