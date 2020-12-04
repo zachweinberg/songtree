@@ -47,7 +47,9 @@ const SearchResults = ({ songs, onOutsideClick }: Props) => {
     }
   }, [])
   return (
-    <ResultsContainer ref={ref}>{renderSongResults(songs)}</ResultsContainer>
+    <ResultsContainer ref={ref}>
+      <div>{renderSongResults(songs)}</div>
+    </ResultsContainer>
   )
 }
 
