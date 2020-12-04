@@ -26,6 +26,9 @@ const theme = {
       1: '#d62a2a',
       2: '#ff9797',
     },
+    green: {
+      1: '#53c94b',
+    },
   },
   breakpoints: {
     sm: '@media (min-width: 576px)',

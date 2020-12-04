@@ -1,7 +1,7 @@
 import { ButtonContainer } from './styles'
 
 export type ButtonSize = 'sm' | 'md' | 'lg'
-export type ButtonType = 'primary' | 'secondary'
+export type ButtonType = 'primary' | 'secondary' | 'danger'
 
 interface Props {
   type: ButtonType
@@ -9,7 +9,7 @@ interface Props {
   disabled?: boolean
   style?: any
   children: React.ReactNode
-  onClick?: () => any
+  onClick?: Function
   bg?: string
   block?: boolean
 }

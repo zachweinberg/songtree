@@ -91,6 +91,14 @@ export const createDocument = async (
   }
 }
 
+export const updateDocument = async <T>(
+  collection: string,
+  documentID: string,
+  data: any,
+  merge = true
+) => {
+  return db.collection(collection).doc(documentID).set(data, { merge })
+}
 export const findDocuments = async <T>(
   collection: string,
   queries: SearchQuery[] = [],

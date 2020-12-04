@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Button from '~/components/Buttons'
 import Icon from '~/components/Icon'
 import Input from '~/components/Input'
-import { register } from '~/lib/api'
+import { registerReq } from '~/lib/api'
 import {
   ButtonContainer,
   Container,
@@ -38,7 +38,6 @@ const iconColors = {
 const AuthForm = ({ providers, signup }: Props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [username, setUsername] = useState('')
   const [notification, setNotification] = useState('')
   const router = useRouter()
 
@@ -46,7 +45,7 @@ const AuthForm = ({ providers, signup }: Props) => {
     e.preventDefault()
 
     if (signup) {
-      register(email, password)
+      registerReq(email, password)
         .then(() => router.push('/login?state=SignupSuccess'))
         .catch((err) => setNotification(err.response.data.error))
     } else {

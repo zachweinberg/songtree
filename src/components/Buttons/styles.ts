@@ -36,6 +36,8 @@ const calcBGColor = (type: ButtonType) => {
       return theme.colors.purple[1]
     case 'secondary':
       return theme.colors.white[1]
+    case 'danger':
+      return theme.colors.red[1]
     default:
       return theme.colors.white[1]
   }
@@ -47,6 +49,8 @@ const calcColor = (type: ButtonType) => {
       return theme.colors.white[1]
     case 'secondary':
       return theme.colors.black[1]
+    case 'danger':
+      return theme.colors.white[1]
     default:
       return theme.colors.black[1]
   }

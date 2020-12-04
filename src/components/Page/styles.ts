@@ -16,16 +16,18 @@ export const InnerContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   flex: 1 0 auto;
-  margin-top: 64px;
+  margin-top: 120px;
   position: relative;
   width: auto;
   padding: 16px;
+  ${theme.breakpoints.md} {
+    margin-top: 80px;
+  }
 `
 
 export const SectionHeading = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
   margin-bottom: 48px;
 `
 

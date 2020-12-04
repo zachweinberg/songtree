@@ -72,7 +72,6 @@ const options: InitOptions = {
 
       if (user?.id) {
         const dbUser = await getUserByID(user.id)
-
         token = {
           ...token,
           id: dbUser.id,
@@ -88,11 +87,14 @@ const options: InitOptions = {
      * @return {object}              Session that will be returned to the client
      */
     session: async (session, user: any) => {
+      const dbUser = await getUserByID(user.id)
+
       const sessionUser = {
         ...session.user,
-        id: user.id,
-        username: user.username,
+        id: dbUser.id,
+        username: dbUser.username,
       }
+
       return Promise.resolve({
         ...session,
         user: sessionUser,

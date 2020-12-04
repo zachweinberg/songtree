@@ -1,6 +1,11 @@
 import bcrypt from 'bcryptjs'
 import { User } from '~/types'
-import { createDocument, findDocuments, getDocument } from './db'
+import {
+  createDocument,
+  findDocuments,
+  getDocument,
+  updateDocument,
+} from './db'
 
 export const createEmailUser = async (
   email: string,
@@ -76,4 +81,8 @@ export const getUserByEmail = async (email, password): Promise<User> => {
 export const getUserByID = async (userID) => {
   const user = await getDocument<User>('users', userID)
   return user
+}
+
+export const updateUsername = async (username, userID) => {
+  await updateDocument('users', userID, { username }, true)
 }
