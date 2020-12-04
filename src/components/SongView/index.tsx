@@ -67,7 +67,8 @@ const SongView = ({ song }: Props) => {
           </Button>
         )}
 
-        {comments.length > 0 &&
+        {comments &&
+          comments.length > 0 &&
           comments.map((comment, i) => <Comment key={i} comment={comment} />)}
       </SongInfo>
     </Grid>

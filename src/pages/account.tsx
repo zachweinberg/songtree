@@ -1,5 +1,6 @@
 import { GetServerSidePropsContext, NextPage } from 'next'
 import { getSession, useSession } from 'next-auth/client'
+import Router from 'next/router'
 import { useEffect, useState } from 'react'
 import { Setting, Wrapper } from '~/components/Account'
 import Flash from '~/components/Flash'
@@ -19,7 +20,12 @@ const Account: NextPage = () => {
 
   const onUpdateUsername = () => {
     updateUsernameReq(username)
-      .then(() => setNotification('Username successfully changed!'))
+      .then(() => {
+        setNotification('Username successfully changed!')
+        setTimeout(() => {
+          Router.reload() // This is a quick hack to force reload username for now
+        }, 1200)
+      })
       .catch((err) => alert(err.response.data.error))
   }
 

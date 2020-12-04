@@ -37,7 +37,7 @@ export const getOrCreateSong = async (songID: string): Promise<Song> => {
       20
     )
 
-    if (songComments.length > 0) {
+    if (songComments && songComments.length > 0) {
       songComments.forEach((comment: Comment) => {
         // Friendly "days ago" timestamps
         comment.createdAt = formatDistance(
@@ -47,7 +47,7 @@ export const getOrCreateSong = async (songID: string): Promise<Song> => {
       })
     }
 
-    song.comments = songComments
+    song.comments = songComments || []
   }
 
   return song
