@@ -18,6 +18,7 @@ export const Grid = styled.div`
 `
 
 export const Sidebar = styled.div`
+  margin-bottom: 20px;
   ${theme.breakpoints.md} {
     grid-column: 1 / 2;
   }

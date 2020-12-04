@@ -5,14 +5,20 @@ export interface Song {
   artist: string
   album: string
   albumArtUrl: string
+  likes: number
+  dislikes: number
   comments?: Comment[]
   previewUrl?: string | null
   createdAt?: Date | string
 }
 
-interface Comment {
+export interface Comment {
   text: string
-  createdAt: Date
+  author: string
+  authorID: string
+  likes: number
+  songID: string
+  createdAt: Date | string
 }
 
 export interface User {
