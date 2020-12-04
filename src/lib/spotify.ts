@@ -106,6 +106,8 @@ const formatSong = (spotifyTrack: SpotifyTrack, isSearch = false): Song => {
     album: spotifyTrack.album.name,
     albumArtUrl,
     previewUrl: spotifyTrack.preview_url,
+    likes: 0,
+    dislikes: 0,
   }
 }
 
