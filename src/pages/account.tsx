@@ -20,7 +20,7 @@ const Account: NextPage = () => {
   const onUpdateUsername = () => {
     updateUsernameReq(username)
       .then(() => setNotification('Username successfully changed!'))
-      .catch((err) => alert(err))
+      .catch((err) => alert(err.response.data.error))
   }
 
   return loading ? null : (
@@ -51,7 +51,6 @@ const Account: NextPage = () => {
             description="Your comments on all songs will be deleted."
             type="delete"
             onAction={() => alert('This doesnt work yet :]')}
-            style={{ marginLeft: '15px' }}
           />
         </Wrapper>
       </div>

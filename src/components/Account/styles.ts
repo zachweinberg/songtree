@@ -23,6 +23,10 @@ export const SettingContainer = styled.div`
   border-radius: ${theme.borderRadius};
   padding: 15px;
   margin-top: 30px;
+  ${theme.breakpoints.md} {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 `
 
 export const Description = styled.p`

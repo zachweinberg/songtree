@@ -14,6 +14,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(401).json({ error: 'Invalid username.' })
     }
 
+    if (username.length > 22) {
+      return res.status(401).json({ error: 'Please use a shorter username.' })
+    }
+
     const session = await getSession({ req })
 
     if (!session) {
@@ -22,12 +26,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const userID = session.user.id
 
-    await updateUsername(username, userID)
+    await updateUsername(username.toLowerCase(), userID)
 
     res.status(200).json({ message: 'Success' })
   } catch (err) {
     console.error(err)
-    res.status(400).json({ error: 'Error' })
+    if (err instanceof Error) {
+      res.status(500).json({ error: err.message })
+    } else {
+      res.status(500).json({ error: 'Something went wrong.' })
+    }
   }
 }
 

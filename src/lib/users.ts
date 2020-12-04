@@ -84,5 +84,12 @@ export const getUserByID = async (userID) => {
 }
 
 export const updateUsername = async (username, userID) => {
+  const users = await findDocuments<User>('users', [
+    { property: 'username', condition: '==', value: username },
+  ])
+
+  if (users.length > 0) {
+    throw new Error('A user with that username already exists.')
+  }
   await updateDocument('users', userID, { username }, true)
 }

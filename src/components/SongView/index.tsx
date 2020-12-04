@@ -1,5 +1,7 @@
 import { useSession } from 'next-auth/client'
+import Router from 'next/router'
 import React from 'react'
+import Button from '~/components/Buttons'
 import PlayButton from '~/components/PlayButton'
 import { Song } from '~/types'
 import CommentBox from './CommentBox'
@@ -12,7 +14,6 @@ import {
   SongInfo,
   SongTitle,
 } from './styles'
-
 interface Props {
   song: Song
 }
@@ -33,7 +34,18 @@ const SongView = ({ song }: Props) => {
           {song.album} ({song.releaseYear})
         </Description>
         {song.previewUrl && <PlayButton src={song.previewUrl} />}
-        {session ? <CommentBox /> : <p>Login to leave comments!</p>}
+        {session ? (
+          <CommentBox username={session.user.username} />
+        ) : (
+          <Button
+            type="secondary"
+            size="md"
+            style={{ marginTop: '50px' }}
+            onClick={() => Router.push('/register')}
+          >
+            Sign up to leave comments!
+          </Button>
+        )}
       </SongInfo>
     </Grid>
   )

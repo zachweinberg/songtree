@@ -3,7 +3,11 @@ import Button from '~/components/Buttons'
 import Input from '~/components/Input'
 import { Title } from './styles'
 
-const CommentBox = () => {
+interface Props {
+  username: string
+}
+
+const CommentBox = ({ username }: Props) => {
   const [comment, setComment] = useState('')
 
   return (
@@ -11,7 +15,7 @@ const CommentBox = () => {
       <Title>Leave a comment</Title>
       <Input
         textarea
-        placeholder="Commenting doesn't work yet :D"
+        placeholder={`Commenting as ${username}`}
         type="text"
         onChange={(e) => setComment(e.target.value)}
         value={comment}
