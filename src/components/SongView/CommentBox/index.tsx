@@ -19,7 +19,10 @@ const CommentBox = ({ username, songID, onSuccess }: Props) => {
 
     setSubmitting(true)
     submitComment(comment, songID)
-      .then(() => onSuccess(comment))
+      .then(() => {
+        setComment('')
+        onSuccess(comment)
+      })
       .catch((err) => alert(err.response.data.error))
       .finally(() => setSubmitting(false))
   }
