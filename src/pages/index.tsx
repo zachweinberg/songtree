@@ -1,5 +1,4 @@
 import { GetServerSideProps, NextPage } from 'next'
-import { ReactNode } from 'react'
 import Page, { Heading, SectionHeading, Subheading } from '~/components/Page'
 import SongGrid from '~/components/SongGrid'
 import { getRecentSongs } from '~/lib/songs'
@@ -17,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<{
 
 interface Props {
   recentSongs: Song[]
-  children: ReactNode
+  children: React.ReactNode
 }
 
 const Home: NextPage = (props: Props) => {
