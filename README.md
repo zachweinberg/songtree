@@ -1,6 +1,6 @@
 # Song Tree
 
-A database of songs backed by the Spotify API. Read and leave comments on your favorite songs!
+A database of songs backed by the Spotify API.
 
 ### Motivation
 
@@ -21,13 +21,6 @@ SPOTIFY_CLIENT_SECRET=XXX
 FIREBASE_PROJECT_ID=XXX
 FIREBASE_CLIENT_EMAIL=XXX
 FIREBASE_PRIVATE_KEY=XXX
-
-GITHUB_CLIENT_SECRET=XXX
-GITHUB_CLIENT_ID=XXX
-
-AUTH_SECRET=XXX
-JWT_SECRET=XXX
-NEXTAUTH_URL=XXX
 
 ```
 
