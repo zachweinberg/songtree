@@ -12,9 +12,6 @@ const SongReactions = ({ song }: Props) => {
       <ReactionButton onClick={() => alert('These dont do anything yet!')}>
         Like
       </ReactionButton>
-      <ReactionButton onClick={() => alert('These dont do anything yet!')}>
-        Dislike
-      </ReactionButton>
     </Container>
   )
 }

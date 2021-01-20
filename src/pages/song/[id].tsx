@@ -5,6 +5,7 @@ import Page from '~/components/Page'
 import SongView from '~/components/SongView'
 import { getOrCreateSong } from '~/lib/songs'
 import { Song } from '~/types'
+
 interface Props {
   song: Song
   children: ReactNode
@@ -17,7 +18,6 @@ export const getServerSideProps: GetServerSideProps = async (
 }> => {
   const songID = context.params.id as string
   const song = await getOrCreateSong(songID)
-  song.createdAt = (song.createdAt as Date).toISOString()
   return { props: { song } }
 }
 
@@ -31,7 +31,7 @@ const SongDetail: NextPage = ({ song }: Props) => {
         />
         <meta
           property="og:description"
-          content={`SONGTREE is a database of songs where anyone can comment and contribute to the database`}
+          content={`SONGTREE is a database of songs backed by Spotify`}
         />
         <meta property="og:image" content={song.albumArtUrl} />
         <meta

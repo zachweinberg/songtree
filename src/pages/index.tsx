@@ -9,9 +9,6 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<{
   props: { recentSongs: Song[] }
 }> => {
   const recentSongs = await getRecentSongs()
-  recentSongs.forEach((song) => {
-    song.createdAt = (song.createdAt as Date).toISOString()
-  })
   return { props: { recentSongs } }
 }
 

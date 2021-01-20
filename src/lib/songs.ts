@@ -1,5 +1,4 @@
-import { formatDistance } from 'date-fns'
-import { Comment, Song } from '~/types'
+import { Song } from '~/types'
 import { createDocument, findDocuments, getDocument } from './db'
 import { getSpotifySongData } from './spotify'
 
@@ -17,6 +16,11 @@ export const getRecentSongs = async (): Promise<Song[]> => {
     { fieldName: 'createdAt', sortDirection: 'desc' },
     8
   )
+
+  recentSongs.forEach((song: Song) => {
+    song.createdAt = (song.createdAt as Date).toISOString()
+  })
+
   return recentSongs
 }
 
@@ -29,30 +33,9 @@ export const getOrCreateSong = async (songID: string): Promise<Song> => {
     song = await createSong(songID)
   } else {
     song = songDoc
-
-    const songComments = await findDocuments<Comment>(
-      'comments',
-      [{ property: 'songID', condition: '==', value: songID }],
-      { fieldName: 'createdAt', sortDirection: 'desc' },
-      20
-    )
-
-    if (songComments && songComments.length > 0) {
-      songComments.forEach((comment: Comment) => {
-        // Friendly "days ago" timestamps
-        comment.createdAt = formatDistance(
-          comment.createdAt as Date,
-          new Date()
-        )
-      })
-    }
-
-    song.comments = songComments || []
   }
 
-  return song
-}
+  song.createdAt = (song.createdAt as Date).toISOString()
 
-export const addComment = async (commentData) => {
-  await createDocument('comments', commentData)
+  return song
 }

@@ -1,4 +1,3 @@
-import { Provider as AuthProvider } from 'next-auth/client'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
@@ -19,11 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <AuthProvider session={pageProps.session}>
-        <Providers>
-          <Component {...pageProps} />
-        </Providers>
-      </AuthProvider>
+      <Providers>
+        <Component {...pageProps} />
+      </Providers>
     </>
   )
 }
